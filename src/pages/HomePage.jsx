@@ -135,37 +135,56 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
             <div className="lg:col-span-5">
               <div className="relative rounded-3xl p-1.5 bg-gradient-to-b from-orange-400 via-amber-300 to-white shadow-2xl">
                 <div className="relative rounded-[22px] overflow-hidden bg-slate-100 group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1100&q=80" 
-                    alt="Raj Express Commercial Transport Fleet"
-                    className="w-full h-80 sm:h-[420px] object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+                  
+                  {/* Image Container with ample height on mobile & desktop */}
+                  <div className="relative h-64 sm:h-96 lg:h-[420px] w-full overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1100&q=80" 
+                      alt="Raj Express Commercial Transport Fleet"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent sm:bg-gradient-to-t sm:from-slate-900/80 sm:via-transparent sm:to-transparent"></div>
 
-                  {/* Floating Live Dispatch Hub Badge */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-3.5 shadow-xl animate-float">
-                    <div className="flex items-center gap-2 text-xs">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                      <span className="font-bold text-slate-900">Central Operations Hub</span>
+                    {/* Floating Live Dispatch Hub Badge (Compact on mobile) */}
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl sm:rounded-2xl px-3 py-2 sm:p-3.5 shadow-xl animate-float">
+                      <div className="flex items-center gap-1.5 sm:gap-2 text-xs">
+                        <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span className="font-bold text-slate-900 text-[11px] sm:text-xs">Central Operations Hub</span>
+                      </div>
+                      <p className="text-[10px] sm:text-[11px] text-orange-600 font-semibold mt-0.5">
+                        450+ Verified Commercial Vehicles
+                      </p>
                     </div>
-                    <p className="text-[11px] text-orange-600 font-semibold mt-0.5">
-                      450+ Verified Commercial Vehicles
-                    </p>
+
+                    {/* Desktop Floating Metric Card at Bottom */}
+                    <div className="hidden sm:block absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-4 shadow-xl animate-float-delayed">
+                      <div className="grid grid-cols-2 gap-4 text-xs">
+                        <div>
+                          <span className="text-slate-500 block text-[10px] uppercase font-bold tracking-wider">Annual Fleet Distance</span>
+                          <span className="text-lg font-extrabold text-slate-900 font-heading">14.2M KM</span>
+                        </div>
+                        <div className="border-l border-slate-200 pl-4">
+                          <span className="text-slate-500 block text-[10px] uppercase font-bold tracking-wider">Zero-Accident Standard</span>
+                          <span className="text-lg font-extrabold text-emerald-600 font-heading">100% Compliance</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Floating Metric Card at Bottom */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-4 shadow-xl animate-float-delayed">
-                    <div className="grid grid-cols-2 gap-4 text-xs">
+                  {/* Mobile Metric Strip below image (100% clear view of vehicle) */}
+                  <div className="sm:hidden bg-white/95 backdrop-blur-md p-3.5 border-t border-slate-100">
+                    <div className="grid grid-cols-2 gap-3 text-xs">
                       <div>
-                        <span className="text-slate-500 block text-[10px] uppercase font-bold tracking-wider">Annual Fleet Distance</span>
-                        <span className="text-lg font-extrabold text-slate-900 font-heading">14.2M KM</span>
+                        <span className="text-slate-500 block text-[9px] uppercase font-bold tracking-wider">Annual Fleet Distance</span>
+                        <span className="text-base font-extrabold text-slate-900 font-heading">14.2M KM</span>
                       </div>
-                      <div className="border-l border-slate-200 pl-4">
-                        <span className="text-slate-500 block text-[10px] uppercase font-bold tracking-wider">Zero-Accident Standard</span>
-                        <span className="text-lg font-extrabold text-emerald-600 font-heading">100% Compliance</span>
+                      <div className="border-l border-slate-200 pl-3">
+                        <span className="text-slate-500 block text-[9px] uppercase font-bold tracking-wider">Zero-Accident Standard</span>
+                        <span className="text-base font-extrabold text-emerald-600 font-heading">100% Compliance</span>
                       </div>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
