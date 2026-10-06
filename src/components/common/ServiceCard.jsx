@@ -4,25 +4,50 @@ import {
   ArrowRight, 
   Truck, 
   ShieldCheck, 
-  Layers 
+  Layers,
+  Maximize2 
 } from 'lucide-react';
 
-const ServiceCard = ({ service, onSelectService }) => {
+const ServiceCard = ({ service, onSelectService, onSelectImage }) => {
+  const handleImageClick = (e) => {
+    e.stopPropagation();
+    if (onSelectImage) {
+      onSelectImage({
+        image: service.image,
+        title: service.title,
+        category: service.category,
+        caption: `${service.shortDesc} • ${service.metrics}`
+      });
+    }
+  };
+
   return (
     <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 transform">
-      {/* Service Header Image */}
-      <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-950">
+      {/* Service Header Image - Click to open modal */}
+      <div 
+        onClick={handleImageClick}
+        className="relative h-48 sm:h-52 overflow-hidden bg-slate-950 cursor-zoom-in group/img"
+        title="Click to preview full image"
+      >
         <img 
           src={service.image} 
           alt={service.title} 
-          className="w-full h-full object-cover img-zoom"
+          className="w-full h-full object-cover img-filter-hover"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent group-hover:via-slate-950/10 transition-all duration-500"></div>
         
-        {/* Category Pill */}
+        {/* Center Hover Preview Badge */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <span className="glassmorphism text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xl scale-90 group-hover/img:scale-100 transition-transform">
+            <Maximize2 className="w-3.5 h-3.5 text-amber-400" />
+            <span>Click to View Image</span>
+          </span>
+        </div>
+
+        {/* Category Pill with Glassmorphism */}
         <div className="absolute top-4 left-4">
-          <span className="bg-white/95 backdrop-blur-md text-orange-700 border border-orange-200 text-xs font-bold px-3 py-1 rounded-full shadow-sm group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-all duration-300">
+          <span className="glassmorphism text-orange-700 border border-orange-200 text-xs font-bold px-3 py-1 rounded-full shadow-sm group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
             {service.category}
           </span>
         </div>

@@ -1,22 +1,46 @@
 import React from 'react';
-import { Users, Weight, Settings, ArrowRight, Shield, Zap, Sparkles } from 'lucide-react';
+import { Users, Weight, Settings, ArrowRight, Shield, Zap, Sparkles, Maximize2 } from 'lucide-react';
 
-const VehicleCard = ({ vehicle, onNavigateContact }) => {
+const VehicleCard = ({ vehicle, onNavigateContact, onSelectImage }) => {
+  const handleImageClick = (e) => {
+    e.stopPropagation();
+    if (onSelectImage) {
+      onSelectImage({
+        image: vehicle.image,
+        title: vehicle.name,
+        category: vehicle.category,
+        caption: `${vehicle.type} • Capacity: ${vehicle.capacity} • Gross Weight: ${vehicle.payload} • ${vehicle.mainUse}`
+      });
+    }
+  };
+
   return (
     <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 transform">
-      {/* Vehicle Image Container */}
-      <div className="relative h-52 sm:h-60 overflow-hidden bg-slate-900">
+      {/* Vehicle Image Container - Click to open modal */}
+      <div 
+        onClick={handleImageClick}
+        className="relative h-52 sm:h-60 overflow-hidden bg-slate-900 cursor-zoom-in group/img"
+        title="Click to preview full vehicle image"
+      >
         <img 
           src={vehicle.image} 
           alt={vehicle.name}
-          className="w-full h-full object-cover object-center img-zoom"
+          className="w-full h-full object-cover object-center img-filter-hover"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent group-hover:via-slate-950/20 transition-all duration-500"></div>
         
-        {/* Category Badge */}
+        {/* Center Hover Preview Badge */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <span className="glassmorphism text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xl scale-90 group-hover/img:scale-100 transition-transform">
+            <Maximize2 className="w-3.5 h-3.5 text-amber-400" />
+            <span>Click to View Image</span>
+          </span>
+        </div>
+
+        {/* Category Badge with Glassmorphism */}
         <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-          <span className="bg-white/95 backdrop-blur-md text-orange-700 border border-orange-200/90 text-[11px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-sm group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-all duration-300">
+          <span className="glassmorphism text-orange-700 border border-orange-200/90 text-[11px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-sm group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
             {vehicle.category}
           </span>
         </div>
@@ -24,7 +48,7 @@ const VehicleCard = ({ vehicle, onNavigateContact }) => {
         {/* Availability Badge */}
         <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
           <span className="bg-slate-950/90 backdrop-blur-md text-emerald-400 border border-emerald-500/30 text-[10px] sm:text-[11px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-glow-ring"></span>
             {vehicle.inFleet || "Active Fleet"}
           </span>
         </div>

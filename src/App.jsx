@@ -63,6 +63,7 @@ export function App() {
         return (
           <AboutPage 
             setActivePage={setActivePage}
+            onSelectImage={handleSelectImage}
             onNavigateContact={handleNavigateToContact}
           />
         );
@@ -70,18 +71,21 @@ export function App() {
         return (
           <ServicesPage 
             initialServiceId={selectedServiceId}
+            onSelectImage={handleSelectImage}
             onNavigateContact={handleNavigateToContact}
           />
         );
       case 'fleet':
         return (
           <FleetPage 
+            onSelectImage={handleSelectImage}
             onNavigateContact={handleNavigateToContact}
           />
         );
       case 'projects':
         return (
           <ProjectsPage 
+            onSelectImage={handleSelectImage}
             onNavigateContact={handleNavigateToContact}
           />
         );

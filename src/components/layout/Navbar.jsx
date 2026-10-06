@@ -90,12 +90,12 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
           </div>
         </div>
 
-        {/* Main Navigation Bar */}
+        {/* Main Navigation Bar (Sticky with Glassmorphism) */}
         <nav 
-          className={`transition-all duration-300 border-b ${
+          className={`transition-all duration-300 ${
             isScrolled 
-              ? 'bg-white/95 backdrop-blur-md border-slate-200/90 shadow-md py-2.5 sm:py-3' 
-              : 'bg-white/90 backdrop-blur-md border-slate-200/70 shadow-sm py-3 sm:py-3.5'
+              ? 'glass-navbar shadow-lg py-2.5 sm:py-3' 
+              : 'bg-white/85 backdrop-blur-md border-b border-slate-200/70 shadow-sm py-3 sm:py-3.5'
           }`}
         >
           <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between">

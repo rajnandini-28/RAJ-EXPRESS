@@ -9,12 +9,12 @@
   html {
     overflow-x: hidden;
     max-width: 100vw;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
   }
 
   body {
     font-family: var(--font-body);
-    background-color: #fbfbf9;
+    background-color: #fcfbf9;
     color: #1e293b;
     overflow-x: hidden;
     max-width: 100vw;
@@ -29,131 +29,312 @@
 
 /* Custom modern scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #f8fafc;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: linear-gradient(180deg, #f97316, #e11d48);
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ea580c;
+  background: #c2410c;
 }
 
 /* ========================================================================= */
-/* CONTINUOUS ANIMATIONS & KEYFRAMES */
+/* 1. ANIMATION KEYFRAMES (Fade-In, Slide-Up, Floating, Pulse, Shimmer)       */
 /* ========================================================================= */
 
-@keyframes float-smooth {
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes floatSlow {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-10px) rotate(0.5deg);
+    transform: translateY(-10px) rotate(0.6deg);
   }
 }
 
-@keyframes float-reverse {
+@keyframes floatReverse {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(8px) rotate(-0.5deg);
+    transform: translateY(9px) rotate(-0.6deg);
   }
 }
 
-@keyframes pulse-ring {
+@keyframes pulseGlowRing {
   0% {
-    transform: scale(0.95);
+    transform: scale(0.96);
     box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
   }
   70% {
     transform: scale(1.03);
-    box-shadow: 0 0 0 14px rgba(249, 115, 22, 0);
+    box-shadow: 0 0 0 16px rgba(249, 115, 22, 0);
   }
   100% {
-    transform: scale(0.95);
+    transform: scale(0.96);
     box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
   }
 }
 
-@keyframes shimmer-sweep {
+@keyframes gradientShift {
   0% {
-    transform: translateX(-150%) skewX(-20deg);
-  }
-  100% {
-    transform: translateX(200%) skewX(-20deg);
-  }
-}
-
-@keyframes glow-shift {
-  0%, 100% {
     background-position: 0% 50%;
-    filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.4));
   }
   50% {
     background-position: 100% 50%;
-    filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.6));
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
+@keyframes shimmerPass {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: translateX(250%) skewX(-25deg);
   }
 }
 
-/* Utility Animation Classes */
+@keyframes borderRotate {
+  0% {
+    border-color: rgba(249, 115, 22, 0.3);
+  }
+  50% {
+    border-color: rgba(234, 88, 12, 0.9);
+  }
+  100% {
+    border-color: rgba(249, 115, 22, 0.3);
+  }
+}
+
+/* Helper Animation Utility Classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 .animate-float {
-  animation: float-smooth 4s ease-in-out infinite !important;
+  animation: floatSlow 4.5s ease-in-out infinite !important;
 }
 
 .animate-float-delayed {
-  animation: float-reverse 5s ease-in-out 1s infinite !important;
+  animation: floatReverse 5.5s ease-in-out 1s infinite !important;
 }
 
-.animate-glow-shift {
-  background-size: 200% 200%;
-  animation: glow-shift 4s ease infinite !important;
+.animate-glow-ring {
+  animation: pulseGlowRing 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1) !important;
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite !important;
+.animate-gradient-flow {
+  background-size: 250% 250%;
+  animation: gradientShift 6s ease infinite !important;
 }
 
 /* ========================================================================= */
-/* CARD LUXURY, BOLD 3D HOVER, SHADOWS & FILTER EFFECTS */
+/* 2. GRADIENT TEXT & GRADIENT EFFECTS                                      */
+/* ========================================================================= */
+
+.text-gradient-sunset {
+  background: linear-gradient(135deg, #ea580c 0%, #f59e0b 50%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #d97706 0%, #fbbf24 50%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #059669 0%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-luxury {
+  background: linear-gradient(135deg, #ea580c 0%, #f97316 50%, #f59e0b 100%);
+}
+
+.bg-gradient-mesh {
+  background: radial-gradient(at 0% 0%, rgba(249, 115, 22, 0.15) 0px, transparent 50%),
+              radial-gradient(at 100% 0%, rgba(245, 158, 11, 0.15) 0px, transparent 50%),
+              radial-gradient(at 50% 100%, rgba(239, 68, 68, 0.1) 0px, transparent 50%);
+}
+
+/* ========================================================================= */
+/* 3. GLASSMORPHISM & FROSTED GLASS                                         */
+/* ========================================================================= */
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.08) !important;
+}
+
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(16px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(190%) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85) !important;
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.88) !important;
+  backdrop-filter: blur(20px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.35) !important;
+}
+
+/* ========================================================================= */
+/* 4. NEUMORPHISM (Soft Inset & Outset)                                      */
+/* ========================================================================= */
+
+.neumorphic-outset {
+  background: #f8fafc !important;
+  box-shadow: 6px 6px 14px #e2e8f0, -6px -6px 14px #ffffff !important;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.neumorphic-outset:hover {
+  box-shadow: 8px 8px 18px #cbd5e1, -8px -8px 18px #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.neumorphic-inset {
+  background: #f1f5f9 !important;
+  box-shadow: inset 4px 4px 8px #cbd5e1, inset -4px -4px 8px #ffffff !important;
+  border-radius: 14px;
+}
+
+.neumorphic-btn {
+  background: #f8fafc !important;
+  box-shadow: 4px 4px 10px #e2e8f0, -4px -4px 10px #ffffff !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.neumorphic-btn:active {
+  box-shadow: inset 3px 3px 6px #cbd5e1, inset -3px -3px 6px #ffffff !important;
+  transform: translateY(1px);
+}
+
+/* ========================================================================= */
+/* 5. GLOW EFFECTS & 3D SHADOWS                                              */
+/* ========================================================================= */
+
+.glow-orange {
+  box-shadow: 0 0 25px rgba(249, 115, 22, 0.45) !important;
+}
+
+.glow-amber {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.4) !important;
+}
+
+.glow-border {
+  border-color: rgba(249, 115, 22, 0.8) !important;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.3) !important;
+}
+
+.shadow-luxury-3d {
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08), 
+              0 8px 16px -4px rgba(15, 23, 42, 0.04),
+              inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.shadow-glow-hover {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.shadow-glow-hover:hover {
+  box-shadow: 0 20px 40px -10px rgba(234, 88, 12, 0.3), 0 8px 16px -4px rgba(15, 23, 42, 0.08);
+  transform: translateY(-6px);
+}
+
+/* ========================================================================= */
+/* 6. HOVER EFFECTS & BUTTON SHINE                                           */
 /* ========================================================================= */
 
 .card-luxury {
   background: #ffffff !important;
   border: 1px solid rgba(226, 232, 240, 0.95);
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease !important;
   position: relative;
   overflow: hidden;
+}
+
+.card-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(249, 115, 22, 0.12) 50%,
+    transparent 80%
+  );
+  transition: transform 0.75s ease;
+  pointer-events: none;
+  z-index: 20;
 }
 
 .card-luxury:hover {
-  transform: translateY(-8px) scale(1.01) !important;
-  border-color: rgba(249, 115, 22, 0.55) !important;
-  box-shadow: 0 25px 50px -12px rgba(234, 88, 12, 0.22), 0 12px 24px -6px rgba(15, 23, 42, 0.08) !important;
+  transform: translateY(-8px) scale(1.015) !important;
+  border-color: rgba(249, 115, 22, 0.6) !important;
+  box-shadow: 0 26px 52px -12px rgba(234, 88, 12, 0.25), 0 12px 24px -6px rgba(15, 23, 42, 0.08) !important;
 }
 
-/* Button Luxury Hover Effects */
+.card-luxury:hover::before {
+  transform: translateX(250%);
+}
+
 .btn-luxury {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease !important;
 }
 
 .btn-luxury::after {
@@ -166,47 +347,71 @@
   background: linear-gradient(
     60deg,
     transparent 20%,
-    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.45) 50%,
     transparent 80%
   );
-  transform: translateX(-150%) skewX(-20deg);
-  transition: transform 0.6s ease;
+  transform: translateX(-150%) skewX(-25deg);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
 }
 
 .btn-luxury:hover::after {
-  transform: translateX(150%) skewX(-20deg);
+  transform: translateX(150%) skewX(-25deg);
 }
 
 .btn-luxury:hover {
   transform: translateY(-3px) scale(1.03) !important;
-  box-shadow: 0 15px 30px -5px rgba(234, 88, 12, 0.45), 0 6px 15px -2px rgba(234, 88, 12, 0.25) !important;
+  box-shadow: 0 16px 32px -4px rgba(234, 88, 12, 0.5), 0 6px 14px -2px rgba(234, 88, 12, 0.3) !important;
 }
 
 .btn-luxury:active {
   transform: translateY(-1px) scale(0.98) !important;
 }
 
-/* Glassmorphism & Frosted Glass */
-.glass-card {
-  background: rgba(255, 255, 255, 0.9) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+/* ========================================================================= */
+/* 7. IMAGE FILTERS (Grayscale to Bright / Blur to Crisp / Saturated Zoom)   */
+/* ========================================================================= */
+
+.img-filter-hover {
+  filter: contrast(0.98) brightness(0.98);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease !important;
+  will-change: transform, filter;
 }
 
-/* Image Zoom & Vivid Filter on Hover */
-.img-zoom {
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease !important;
-}
-
-.group:hover .img-zoom,
-.card-luxury:hover .img-zoom {
+.group:hover .img-filter-hover,
+.card-luxury:hover .img-filter-hover {
   transform: scale(1.08) !important;
-  filter: brightness(1.05) contrast(1.03) saturate(1.1) !important;
+  filter: brightness(1.06) contrast(1.05) saturate(1.15) !important;
 }
 
-/* Background Grids & Ambient Lighting */
+/* Special Grayscale to Full Color Transition Class */
+.img-grayscale-to-color {
+  filter: grayscale(40%) contrast(0.95);
+  transition: filter 0.5s ease, transform 0.6s ease !important;
+}
+
+.group:hover .img-grayscale-to-color {
+  filter: grayscale(0%) contrast(1.05) saturate(1.1) brightness(1.03) !important;
+  transform: scale(1.06);
+}
+
+/* ========================================================================= */
+/* 8. PARALLAX & AMBIENT DEPTH                                              */
+/* ========================================================================= */
+
+.parallax-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.parallax-layer-back {
+  transform: translateZ(-50px) scale(1.1);
+}
+
+.parallax-layer-front {
+  transform: translateZ(20px);
+}
+
 .bg-grid-pattern {
   background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
