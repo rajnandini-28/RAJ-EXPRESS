@@ -9,7 +9,7 @@ import {
 
 const ServiceCard = ({ service, onSelectService }) => {
   return (
-    <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer">
+    <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 transform">
       {/* Service Header Image */}
       <div className="relative h-48 sm:h-52 overflow-hidden bg-slate-950">
         <img 

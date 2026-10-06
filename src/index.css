@@ -43,15 +43,15 @@
 }
 
 /* ========================================================================= */
-/* ADVANCED ANIMATIONS, KEYFRAMES & TRANSFORM EFFECTS */
+/* CONTINUOUS ANIMATIONS & KEYFRAMES */
 /* ========================================================================= */
 
-@keyframes float-slow {
+@keyframes float-smooth {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(-8px) rotate(0.4deg);
+    transform: translateY(-10px) rotate(0.5deg);
   }
 }
 
@@ -60,58 +60,42 @@
     transform: translateY(0px) rotate(0deg);
   }
   50% {
-    transform: translateY(7px) rotate(-0.4deg);
+    transform: translateY(8px) rotate(-0.5deg);
   }
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 0.7;
-    transform: scale(1);
-    filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.3));
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
   }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.6));
+  70% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 14px rgba(249, 115, 22, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
   }
 }
 
 @keyframes shimmer-sweep {
   0% {
     transform: translateX(-150%) skewX(-20deg);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.6;
   }
   100% {
-    transform: translateX(150%) skewX(-20deg);
-    opacity: 0;
+    transform: translateX(200%) skewX(-20deg);
   }
 }
 
-@keyframes gradient-flow {
+@keyframes glow-shift {
   0%, 100% {
     background-position: 0% 50%;
+    filter: drop-shadow(0 0 15px rgba(249, 115, 22, 0.4));
   }
   50% {
     background-position: 100% 50%;
-  }
-}
-
-@keyframes beacon-wave {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.6);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 12px rgba(249, 115, 22, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+    filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.6));
   }
 }
 
@@ -124,87 +108,52 @@
   }
 }
 
+/* Utility Animation Classes */
 .animate-float {
-  animation: float-slow 4.5s ease-in-out infinite;
+  animation: float-smooth 4s ease-in-out infinite !important;
 }
 
 .animate-float-delayed {
-  animation: float-reverse 5.5s ease-in-out 1s infinite;
+  animation: float-reverse 5s ease-in-out 1s infinite !important;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-
-.animate-gradient {
+.animate-glow-shift {
   background-size: 200% 200%;
-  animation: gradient-flow 6s ease infinite;
+  animation: glow-shift 4s ease infinite !important;
 }
 
-.animate-beacon {
-  animation: beacon-wave 2s infinite cubic-bezier(0.66, 0, 0, 1);
+.animate-pulse-ring {
+  animation: pulse-ring 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
 }
 
 .animate-spin-slow {
-  animation: spin-slow 25s linear infinite;
+  animation: spin-slow 20s linear infinite !important;
 }
 
 /* ========================================================================= */
-/* LUXURY CARD, SHADOWS, TRANSITIONS & FILTER HOVER EFFECTS */
+/* CARD LUXURY, BOLD 3D HOVER, SHADOWS & FILTER EFFECTS */
 /* ========================================================================= */
 
 .card-luxury {
-  background: #ffffff;
+  background: #ffffff !important;
   border: 1px solid rgba(226, 232, 240, 0.95);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.4s ease;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 
-              0 2px 6px -1px rgba(15, 23, 42, 0.02),
-              inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
   position: relative;
   overflow: hidden;
-  will-change: transform, box-shadow;
-}
-
-.card-luxury::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    105deg,
-    transparent 20%,
-    rgba(249, 115, 22, 0.08) 50%,
-    transparent 80%
-  );
-  transition: transform 0.75s ease;
-  pointer-events: none;
-  z-index: 20;
 }
 
 .card-luxury:hover {
-  transform: translateY(-8px) scale(1.008);
-  border-color: rgba(249, 115, 22, 0.5);
-  box-shadow: 0 24px 48px -12px rgba(234, 88, 12, 0.16), 
-              0 12px 24px -6px rgba(15, 23, 42, 0.08),
-              0 0 0 1px rgba(249, 115, 22, 0.2);
+  transform: translateY(-8px) scale(1.01) !important;
+  border-color: rgba(249, 115, 22, 0.55) !important;
+  box-shadow: 0 25px 50px -12px rgba(234, 88, 12, 0.22), 0 12px 24px -6px rgba(15, 23, 42, 0.08) !important;
 }
 
-.card-luxury:hover::before {
-  transform: translateX(240%);
-}
-
-/* Interactive Button Hover Glow & Shine */
+/* Button Luxury Hover Effects */
 .btn-luxury {
   position: relative;
   overflow: hidden;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
-              box-shadow 0.35s ease, 
-              background 0.35s ease;
-  will-change: transform, box-shadow;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 .btn-luxury::after {
@@ -217,83 +166,48 @@
   background: linear-gradient(
     60deg,
     transparent 20%,
-    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.4) 50%,
     transparent 80%
   );
-  transform: translateX(-120%);
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-150%) skewX(-20deg);
+  transition: transform 0.6s ease;
   pointer-events: none;
 }
 
 .btn-luxury:hover::after {
-  transform: translateX(120%);
+  transform: translateX(150%) skewX(-20deg);
 }
 
 .btn-luxury:hover {
-  transform: translateY(-3px) scale(1.025);
-  box-shadow: 0 14px 28px -4px rgba(234, 88, 12, 0.4), 
-              0 6px 12px -2px rgba(234, 88, 12, 0.2);
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow: 0 15px 30px -5px rgba(234, 88, 12, 0.45), 0 6px 15px -2px rgba(234, 88, 12, 0.25) !important;
 }
 
 .btn-luxury:active {
-  transform: translateY(-1px) scale(0.99);
+  transform: translateY(-1px) scale(0.98) !important;
 }
 
-/* Glassmorphism & Backdrop Filters */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+/* Glassmorphism & Frosted Glass */
+.glass-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
 }
 
-.glass-dark {
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Box Shadow Presets */
-.shadow-glow-warm {
-  box-shadow: 0 12px 35px -5px rgba(249, 115, 22, 0.25), 
-              0 4px 12px -2px rgba(245, 158, 11, 0.15);
-}
-
-.shadow-glow-amber {
-  box-shadow: 0 10px 30px -5px rgba(245, 158, 11, 0.3);
-}
-
-.shadow-glow-emerald {
-  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.28);
-}
-
-.shadow-3d {
-  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.08), 
-              0 6px 14px -3px rgba(15, 23, 42, 0.04), 
-              inset 0 1px 0 rgba(255, 255, 255, 0.95);
-}
-
-/* Dot grid & ambient lighting */
-.bg-grid-pattern {
-  background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1.2px, transparent 1.2px);
-  background-size: 24px 24px;
-}
-
-.bg-radial-gradient {
-  background: radial-gradient(circle at 50% 0%, rgba(254, 215, 170, 0.5) 0%, rgba(251, 251, 249, 0) 70%);
-}
-
-/* Smooth zoom and filter enhancements for images */
+/* Image Zoom & Vivid Filter on Hover */
 .img-zoom {
-  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
-              filter 0.6s ease;
-  will-change: transform, filter;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease !important;
 }
 
-.card-luxury:hover .img-zoom,
-.group:hover .img-zoom {
-  transform: scale(1.08);
-  filter: brightness(1.04) contrast(1.03) saturate(1.08);
+.group:hover .img-zoom,
+.card-luxury:hover .img-zoom {
+  transform: scale(1.08) !important;
+  filter: brightness(1.05) contrast(1.03) saturate(1.1) !important;
+}
+
+/* Background Grids & Ambient Lighting */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
 }

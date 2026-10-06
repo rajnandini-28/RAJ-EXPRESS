@@ -220,18 +220,18 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
           {statistics.map((stat, idx) => (
             <div 
               key={idx}
-              className="card-luxury rounded-2xl p-6 text-center group cursor-pointer"
+              className="card-luxury rounded-2xl p-6 text-center group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 transform"
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-50 to-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-3.5 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
-                {idx === 0 && <Truck className="w-5 h-5" />}
-                {idx === 1 && <Clock className="w-5 h-5" />}
-                {idx === 2 && <Building2 className="w-5 h-5" />}
-                {idx === 3 && <Award className="w-5 h-5" />}
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-100 to-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-4 group-hover:scale-115 group-hover:rotate-6 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white transition-all duration-300 shadow-md group-hover:shadow-orange-500/30">
+                {idx === 0 && <Truck className="w-6 h-6 stroke-[2.2]" />}
+                {idx === 1 && <Clock className="w-6 h-6 stroke-[2.2]" />}
+                {idx === 2 && <Building2 className="w-6 h-6 stroke-[2.2]" />}
+                {idx === 3 && <Award className="w-6 h-6 stroke-[2.2]" />}
               </div>
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-orange-600 font-heading mb-1 tracking-tight group-hover:scale-105 transition-transform">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600 font-heading mb-1 tracking-tight group-hover:scale-105 transition-transform duration-300">
                 {stat.value}
               </div>
-              <div className="text-sm font-bold text-slate-900 mb-1">
+              <div className="text-sm font-bold text-slate-900 mb-1 group-hover:text-orange-600 transition-colors">
                 {stat.label}
               </div>
               <div className="text-xs text-slate-500">

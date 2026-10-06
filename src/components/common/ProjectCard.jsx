@@ -3,7 +3,7 @@ import { MapPin, Building2, CheckCircle2, TrendingUp, ArrowUpRight } from 'lucid
 
 const ProjectCard = ({ project, onNavigateContact }) => {
   return (
-    <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer">
+    <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 transform">
       {/* Project Image */}
       <div className="relative h-56 sm:h-64 overflow-hidden bg-slate-950">
         <img 

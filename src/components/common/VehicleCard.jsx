@@ -3,7 +3,7 @@ import { Users, Weight, Settings, ArrowRight, Shield, Zap, Sparkles } from 'luci
 
 const VehicleCard = ({ vehicle, onNavigateContact }) => {
   return (
-    <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer">
+    <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 transform">
       {/* Vehicle Image Container */}
       <div className="relative h-52 sm:h-60 overflow-hidden bg-slate-900">
         <img 
