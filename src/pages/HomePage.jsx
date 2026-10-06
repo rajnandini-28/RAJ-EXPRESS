@@ -15,7 +15,9 @@ import {
   PhoneCall,
   Send,
   Navigation,
-  Globe
+  Globe,
+  Zap,
+  Check
 } from 'lucide-react';
 import { 
   companyInfo, 
@@ -57,11 +59,11 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
       {/* ========================================================================= */}
       {/* 1. HERO SECTION */}
       {/* ========================================================================= */}
-      <section className="relative min-h-[85vh] flex flex-col justify-center pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-amber-100/50 via-orange-50/30 to-transparent">
+      <section className="relative min-h-[85vh] flex flex-col justify-center pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-amber-100/60 via-orange-50/30 to-transparent">
         {/* Ambient background glows */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-15 pointer-events-none"></div>
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[450px] bg-orange-400/10 rounded-full blur-[140px] pointer-events-none"></div>
-        <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-amber-400/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[450px] bg-orange-400/15 rounded-full blur-[140px] pointer-events-none"></div>
+        <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-amber-400/15 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="relative max-w-7xl mx-auto w-full z-10 space-y-12">
           
@@ -72,10 +74,10 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               
               {/* Telemetry Status Pill */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold bg-white/90 border border-orange-200 text-slate-800 shadow-sm backdrop-blur-md">
-                <span className="flex h-2 w-2 relative">
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-semibold bg-white/95 border border-orange-200 text-slate-800 shadow-md backdrop-blur-md hover:border-orange-400 transition-colors">
+                <span className="flex h-2.5 w-2.5 relative">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
                 </span>
                 <span className="text-orange-600 font-bold uppercase tracking-wider text-[11px]">Active Fleet Operations</span>
                 <span className="text-slate-300">|</span>
@@ -96,7 +98,7 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-1">
                 <button
                   onClick={() => onNavigateContact ? onNavigateContact() : handleNav('contact')}
-                  className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-extrabold px-8 py-4 rounded-xl text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:scale-[1.02] transition-all cursor-pointer"
+                  className="w-full sm:w-auto bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white font-extrabold px-8 py-4 rounded-xl text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-orange-500/25 btn-luxury cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Contact Our Operations</span>
@@ -104,7 +106,7 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
 
                 <button
                   onClick={() => handleNav('fleet')}
-                  className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-800 hover:text-orange-600 font-bold px-7 py-4 rounded-xl text-sm flex items-center justify-center gap-2.5 border border-slate-200/90 hover:border-orange-300 transition cursor-pointer shadow-sm"
+                  className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-800 hover:text-orange-600 font-bold px-7 py-4 rounded-xl text-sm flex items-center justify-center gap-2.5 border border-slate-200/90 hover:border-orange-300 transition-all cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-0.5"
                 >
                   <Truck className="w-4 h-4 text-orange-500" />
                   <span>View 450+ Fleet Inventory</span>
@@ -113,17 +115,17 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
 
               {/* Trust Indicators */}
               <div className="pt-6 border-t border-slate-200 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-slate-600">
-                <div className="flex items-center gap-2 justify-center lg:justify-start">
+                <div className="flex items-center gap-2 justify-center lg:justify-start hover:text-slate-900 transition-colors">
                   <ShieldCheck className="w-4 h-4 text-orange-500 shrink-0" />
-                  <span className="font-medium">ISO 9001:2015 Certified</span>
+                  <span className="font-semibold">ISO 9001:2015 Certified</span>
                 </div>
-                <div className="flex items-center gap-2 justify-center lg:justify-start">
+                <div className="flex items-center gap-2 justify-center lg:justify-start hover:text-slate-900 transition-colors">
                   <Activity className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span className="font-medium">24/7 GPS & Speed Tracking</span>
+                  <span className="font-semibold">24/7 GPS & Speed Tracking</span>
                 </div>
-                <div className="flex items-center gap-2 justify-center lg:justify-start col-span-2 sm:col-span-1">
+                <div className="flex items-center gap-2 justify-center lg:justify-start col-span-2 sm:col-span-1 hover:text-slate-900 transition-colors">
                   <Clock className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span className="font-medium">99.4% On-Time SLA Record</span>
+                  <span className="font-semibold">99.4% On-Time SLA Record</span>
                 </div>
               </div>
 
@@ -131,17 +133,17 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
 
             {/* Right Visual Composition (5 Cols) */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl p-1 bg-gradient-to-b from-orange-300 via-amber-200 to-white shadow-xl">
-                <div className="relative rounded-[22px] overflow-hidden bg-slate-100">
+              <div className="relative rounded-3xl p-1.5 bg-gradient-to-b from-orange-400 via-amber-300 to-white shadow-2xl">
+                <div className="relative rounded-[22px] overflow-hidden bg-slate-100 group">
                   <img 
                     src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1100&q=80" 
                     alt="Raj Express Commercial Transport Fleet"
-                    className="w-full h-80 sm:h-[420px] object-cover object-center"
+                    className="w-full h-80 sm:h-[420px] object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
 
                   {/* Floating Live Dispatch Hub Badge */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-3.5 shadow-lg">
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-3.5 shadow-xl animate-float">
                     <div className="flex items-center gap-2 text-xs">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                       <span className="font-bold text-slate-900">Central Operations Hub</span>
@@ -152,7 +154,7 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
                   </div>
 
                   {/* Floating Metric Card at Bottom */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-4 shadow-lg">
+                  <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-4 shadow-xl animate-float-delayed">
                     <div className="grid grid-cols-2 gap-4 text-xs">
                       <div>
                         <span className="text-slate-500 block text-[10px] uppercase font-bold tracking-wider">Annual Fleet Distance</span>
@@ -171,7 +173,7 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
           </div>
 
           {/* Regional Corridors Strip */}
-          <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-sm">
+          <div className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2 text-slate-700 font-semibold">
                 <Globe className="w-4 h-4 text-orange-500" />
@@ -179,7 +181,7 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
               </div>
               <div className="flex flex-wrap gap-2 justify-center">
                 {companyInfo.regionalHubs.map((hub, idx) => (
-                  <span key={idx} className="bg-orange-50 text-orange-700 px-3 py-1 rounded-lg border border-orange-200/80 font-medium">
+                  <span key={idx} className="bg-orange-50 text-orange-700 hover:bg-orange-500 hover:text-white px-3 py-1 rounded-lg border border-orange-200/80 font-semibold transition-colors duration-200 cursor-default">
                     {hub}
                   </span>
                 ))}
@@ -199,15 +201,15 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
           {statistics.map((stat, idx) => (
             <div 
               key={idx}
-              className="bg-white border border-slate-200/90 rounded-2xl p-6 text-center hover:border-orange-400 hover:shadow-md transition-all duration-300 shadow-sm group hover:-translate-y-1"
+              className="card-luxury rounded-2xl p-6 text-center group cursor-pointer"
             >
-              <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-50 to-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-3.5 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
                 {idx === 0 && <Truck className="w-5 h-5" />}
                 {idx === 1 && <Clock className="w-5 h-5" />}
                 {idx === 2 && <Building2 className="w-5 h-5" />}
                 {idx === 3 && <Award className="w-5 h-5" />}
               </div>
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-orange-600 font-heading mb-1 tracking-tight">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-orange-600 font-heading mb-1 tracking-tight group-hover:scale-105 transition-transform">
                 {stat.value}
               </div>
               <div className="text-sm font-bold text-slate-900 mb-1">
@@ -226,12 +228,12 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
       {/* 3. SHORT COMPANY INTRODUCTION & CAPABILITIES */}
       {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-sm">
+        <div className="card-luxury rounded-3xl p-8 sm:p-12 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-orange-50 text-orange-700 border border-orange-200">
-                <Sparkles className="w-3.5 h-3.5 text-orange-600" />
+              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-orange-50 text-orange-700 border border-orange-200">
+                <Sparkles className="w-3.5 h-3.5 text-orange-600 animate-pulse" />
                 <span>Commercial Excellence</span>
               </div>
 
@@ -244,45 +246,45 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
-                <div className="flex items-center gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <div className="flex items-center gap-2.5 bg-slate-50 hover:bg-orange-50/50 p-3 rounded-xl border border-slate-200 transition-colors">
                   <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0" />
-                  <span>Strict Driver Background Vetting</span>
+                  <span className="font-semibold">Strict Driver Background Vetting</span>
                 </div>
-                <div className="flex items-center gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <div className="flex items-center gap-2.5 bg-slate-50 hover:bg-orange-50/50 p-3 rounded-xl border border-slate-200 transition-colors">
                   <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0" />
-                  <span>24/7 Redundant Dispatch Centers</span>
+                  <span className="font-semibold">24/7 Redundant Dispatch Centers</span>
                 </div>
-                <div className="flex items-center gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <div className="flex items-center gap-2.5 bg-slate-50 hover:bg-orange-50/50 p-3 rounded-xl border border-slate-200 transition-colors">
                   <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0" />
-                  <span>Preventative OEM Maintenance</span>
+                  <span className="font-semibold">Preventative OEM Maintenance</span>
                 </div>
-                <div className="flex items-center gap-2.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <div className="flex items-center gap-2.5 bg-slate-50 hover:bg-orange-50/50 p-3 rounded-xl border border-slate-200 transition-colors">
                   <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0" />
-                  <span>Dedicated Corporate SLA Managers</span>
+                  <span className="font-semibold">Dedicated Corporate SLA Managers</span>
                 </div>
               </div>
 
               <div className="pt-2">
                 <button
                   onClick={() => handleNav('about')}
-                  className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-bold text-sm group cursor-pointer"
+                  className="inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-extrabold text-sm group cursor-pointer"
                 >
                   <span>Learn more about our safety standards & leadership team</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                 </button>
               </div>
             </div>
 
             <div className="lg:col-span-6 grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <div className="rounded-2xl overflow-hidden h-48 sm:h-56 bg-slate-100 border border-slate-200 shadow-sm">
+                <div className="rounded-2xl overflow-hidden h-48 sm:h-56 bg-slate-100 border border-slate-200 shadow-sm group">
                   <img 
                     src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=700&q=80" 
                     alt="Corporate Shuttle Coach"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-sm">
+                <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-orange-300 transition-colors">
                   <Award className="w-6 h-6 text-orange-600 mb-2" />
                   <h4 className="text-slate-900 font-bold text-sm font-heading">ISO 9001:2015 Certified</h4>
                   <p className="text-xs text-slate-500 mt-1">Quality audited processes ensuring predictable transit.</p>
@@ -290,16 +292,16 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
               </div>
 
               <div className="space-y-4 pt-6">
-                <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-sm">
+                <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
                   <Building2 className="w-6 h-6 text-blue-600 mb-2" />
                   <h4 className="text-slate-900 font-bold text-sm font-heading">320+ Corporate Retainers</h4>
                   <p className="text-xs text-slate-500 mt-1">Trusted by tech hubs, manufacturers & FMCG brands.</p>
                 </div>
-                <div className="rounded-2xl overflow-hidden h-48 sm:h-56 bg-slate-100 border border-slate-200 shadow-sm">
+                <div className="rounded-2xl overflow-hidden h-48 sm:h-56 bg-slate-100 border border-slate-200 shadow-sm group">
                   <img 
                     src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80" 
                     alt="Logistics Operations Warehouse"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
@@ -334,7 +336,7 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
         <div className="text-center mt-12">
           <button
             onClick={() => handleNav('services')}
-            className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 hover:text-orange-600 font-bold px-7 py-3.5 rounded-xl border border-slate-200/90 hover:border-orange-300 text-sm cursor-pointer shadow-sm transition"
+            className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 hover:text-orange-600 font-bold px-7 py-3.5 rounded-xl border border-slate-200/90 hover:border-orange-300 text-sm cursor-pointer shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
           >
             <span>View All Service Specifications & Capabilities</span>
             <ChevronRight className="w-4 h-4 text-orange-500" />
@@ -362,8 +364,8 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
               onClick={() => setSelectedFleetTab(tab)}
               className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                 selectedFleetTab === tab
-                  ? 'bg-orange-500 text-white shadow-md shadow-orange-500/20 font-bold'
-                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 shadow-sm'
+                  ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/20 font-bold scale-105'
+                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 shadow-sm hover:border-orange-300'
               }`}
             >
               {tab}
@@ -385,7 +387,7 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
         <div className="text-center mt-12">
           <button
             onClick={() => handleNav('fleet')}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-extrabold px-8 py-4 rounded-xl text-sm shadow-lg shadow-orange-500/20 hover:shadow-orange-500/30 transition cursor-pointer"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white font-extrabold px-8 py-4 rounded-xl text-sm shadow-lg shadow-orange-500/20 btn-luxury cursor-pointer"
           >
             <span>Explore Complete 450+ Vehicle Inventory & Specs</span>
             <ArrowRight className="w-4 h-4" />
@@ -418,7 +420,7 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
         <div className="text-center mt-12">
           <button
             onClick={() => handleNav('projects')}
-            className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 hover:text-orange-600 font-bold px-7 py-3.5 rounded-xl border border-slate-200/90 hover:border-orange-300 text-sm cursor-pointer transition shadow-sm"
+            className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 hover:text-orange-600 font-bold px-7 py-3.5 rounded-xl border border-slate-200/90 hover:border-orange-300 text-sm cursor-pointer transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
           >
             <span>Browse All Enterprise Case Studies</span>
             <ChevronRight className="w-4 h-4 text-orange-500" />
@@ -442,17 +444,17 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
           {whyChooseUs.map((item, idx) => (
             <div 
               key={idx}
-              className="bg-white border border-slate-200/90 rounded-2xl p-7 hover:border-orange-400 hover:shadow-md transition-all duration-300 group hover:-translate-y-1 shadow-sm"
+              className="card-luxury rounded-2xl p-7 group cursor-pointer"
             >
-              <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200 text-orange-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                {idx === 0 && <ShieldCheck className="w-6 h-6" />}
-                {idx === 1 && <Activity className="w-6 h-6" />}
-                {idx === 2 && <Clock className="w-6 h-6" />}
-                {idx === 3 && <Truck className="w-6 h-6" />}
-                {idx === 4 && <Users className="w-6 h-6" />}
-                {idx === 5 && <MapPin className="w-6 h-6" />}
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-100 border border-orange-200 text-orange-600 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                {idx === 0 && <ShieldCheck className="w-7 h-7" />}
+                {idx === 1 && <Activity className="w-7 h-7" />}
+                {idx === 2 && <Clock className="w-7 h-7" />}
+                {idx === 3 && <Truck className="w-7 h-7" />}
+                {idx === 4 && <Users className="w-7 h-7" />}
+                {idx === 5 && <MapPin className="w-7 h-7" />}
               </div>
-              <h3 className="text-lg font-bold text-slate-900 font-heading mb-2">
+              <h3 className="text-lg font-bold text-slate-900 font-heading mb-2 group-hover:text-orange-600 transition-colors">
                 {item.title}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -468,7 +470,7 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
       {/* 8. CONTACT / REACH OUT ACTION BANNER */}
       {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 p-8 sm:p-12 text-white overflow-hidden shadow-xl">
+        <div className="relative rounded-3xl bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 p-8 sm:p-12 text-white overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -488,15 +490,15 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
               <button
                 onClick={() => onNavigateContact ? onNavigateContact() : handleNav('contact')}
-                className="w-full bg-white hover:bg-slate-100 text-slate-900 font-extrabold px-6 py-4 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg hover:scale-[1.02] transition cursor-pointer"
+                className="w-full bg-white hover:bg-slate-100 text-slate-900 font-extrabold px-6 py-4 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg hover:scale-[1.02] transition cursor-pointer btn-luxury"
               >
                 <Send className="w-4 h-4 text-orange-600" />
-                <span>Go to Contact Page</span>
+                <span className="text-slate-900 font-bold">Go to Contact Page</span>
               </button>
 
               <a
                 href={`tel:${companyInfo.phone}`}
-                className="w-full bg-orange-700/50 hover:bg-orange-700/70 border border-white/20 text-white font-extrabold px-6 py-4 rounded-xl text-sm flex items-center justify-center gap-2 transition"
+                className="w-full bg-orange-700/50 hover:bg-orange-700/70 border border-white/20 text-white font-extrabold px-6 py-4 rounded-xl text-sm flex items-center justify-center gap-2 transition hover:scale-[1.01]"
               >
                 <PhoneCall className="w-4 h-4 text-amber-300" />
                 <span>Call Dispatch: {companyInfo.phone}</span>
@@ -512,4 +514,5 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
 };
 
 export default HomePage;
+
 

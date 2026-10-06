@@ -57,15 +57,14 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         {/* Top Bar for Corporate Coordinates */}
-        {/* Top Bar for Corporate Coordinates */}
-        <div className="hidden lg:block bg-slate-900 text-slate-200 text-xs border-b border-slate-800 backdrop-blur-md">
+        <div className="hidden lg:block bg-slate-950 text-slate-200 text-xs border-b border-slate-800 backdrop-blur-md">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
             <div className="flex items-center space-x-6">
               <span className="flex items-center gap-1.5 text-amber-400 font-medium">
-                <ShieldCheck className="w-4 h-4" />
+                <ShieldCheck className="w-4 h-4 text-orange-400" />
                 <span>ISO 9001:2015 Certified Fleet Operations</span>
               </span>
-              <span className="text-slate-600">|</span>
+              <span className="text-slate-700">|</span>
               <span className="flex items-center gap-1.5 text-slate-300">
                 <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 24/7 Central Dispatch Active (Rajasthan • Gujarat • Delhi • Lucknow)
@@ -75,16 +74,16 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
             <div className="flex items-center space-x-6">
               <a 
                 href={`tel:${companyInfo.phone}`} 
-                className="flex items-center gap-1.5 hover:text-amber-400 transition-colors font-medium text-slate-200"
+                className="flex items-center gap-1.5 hover:text-orange-400 transition-colors font-medium text-slate-200"
               >
-                <Phone className="w-3.5 h-3.5 text-amber-400" />
+                <Phone className="w-3.5 h-3.5 text-orange-400" />
                 <span>{companyInfo.phone}</span>
               </a>
               <a 
                 href={`mailto:${companyInfo.email}`} 
-                className="flex items-center gap-1.5 hover:text-amber-400 transition-colors text-slate-300"
+                className="flex items-center gap-1.5 hover:text-orange-400 transition-colors text-slate-300"
               >
-                <Mail className="w-3.5 h-3.5 text-amber-400" />
+                <Mail className="w-3.5 h-3.5 text-orange-400" />
                 <span className="truncate max-w-[200px]">{companyInfo.email}</span>
               </a>
             </div>
@@ -103,17 +102,17 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
             {/* Brand Logo */}
             <button 
               onClick={() => handleNavClick('home')}
-              className="flex items-center gap-2 sm:gap-3 text-left group focus:outline-none cursor-pointer shrink-0"
+              className="flex items-center gap-2.5 sm:gap-3 text-left group focus:outline-none cursor-pointer shrink-0"
             >
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 flex items-center justify-center text-slate-950 shadow-md shadow-orange-500/25 group-hover:scale-105 transition-transform">
-                <Truck className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2] text-slate-950" />
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-orange-500 via-amber-500 to-orange-600 flex items-center justify-center text-white shadow-md shadow-orange-500/25 group-hover:scale-105 group-hover:shadow-orange-500/40 transition-all duration-300">
+                <Truck className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2] text-white" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
                   <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 font-heading">
                     RAJ<span className="text-orange-600">EXPRESS</span>
                   </span>
-                  <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest bg-amber-50 text-orange-700 px-1.5 py-0.5 rounded-md border border-orange-200 shadow-xs">
+                  <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest bg-orange-50 text-orange-700 px-1.5 py-0.5 rounded-md border border-orange-200 shadow-xs">
                     LOGISTICS
                   </span>
                 </div>
@@ -133,8 +132,8 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
                     onClick={() => handleNavClick(item.id)}
                     className={`px-3 py-1.5 lg:px-4 lg:py-2 rounded-xl text-xs lg:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                       isActive 
-                        ? 'text-orange-700 bg-orange-50/90 border border-orange-200/80 shadow-xs font-bold' 
-                        : 'text-slate-700 hover:text-orange-600 hover:bg-orange-50/60'
+                        ? 'text-orange-700 bg-orange-50 border border-orange-200/90 shadow-xs font-bold scale-[1.02]' 
+                        : 'text-slate-700 hover:text-orange-600 hover:bg-orange-50/60 hover:-translate-y-0.5'
                     }`}
                   >
                     {item.label}
@@ -147,10 +146,10 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
             <div className="hidden md:flex items-center space-x-3">
               <button
                 onClick={() => onNavigateContact ? onNavigateContact() : handleNavClick('contact')}
-                className={`inline-flex items-center gap-2 font-extrabold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md cursor-pointer ${
+                className={`inline-flex items-center gap-2 font-extrabold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md cursor-pointer btn-luxury ${
                   activePage === 'contact'
                     ? 'bg-orange-600 text-white ring-2 ring-orange-400 shadow-orange-500/30'
-                    : 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 shadow-orange-500/20 hover:scale-[1.02]'
+                    : 'bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white shadow-orange-500/25'
                 }`}
               >
                 <Send className="w-3.5 h-3.5" />
@@ -162,7 +161,7 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
             <div className="flex md:hidden items-center gap-1.5 sm:gap-2">
               <button
                 onClick={() => onNavigateContact ? onNavigateContact() : handleNavClick('contact')}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 px-3 py-1.5 rounded-lg text-xs font-bold shadow transition cursor-pointer"
+                className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow transition cursor-pointer"
               >
                 Contact
               </button>
@@ -207,7 +206,7 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
                     if (onNavigateContact) onNavigateContact();
                     else handleNavClick('contact');
                   }}
-                  className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-extrabold py-3 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 cursor-pointer"
+                  className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-extrabold py-3 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 cursor-pointer btn-luxury"
                 >
                   <Send className="w-4 h-4" />
                   <span>Contact Our Team</span>
@@ -233,3 +232,4 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
 };
 
 export default Navbar;
+
