@@ -236,29 +236,46 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
       {/* ========================================================================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {statistics.map((stat, idx) => (
-            <StaggerItem key={idx} direction="up">
-              <div 
-                className="card-luxury rounded-2xl p-6 text-center group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 transform"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-100 to-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-4 group-hover:scale-115 group-hover:rotate-6 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white transition-all duration-300 shadow-md group-hover:shadow-orange-500/30">
-                  {idx === 0 && <Truck className="w-6 h-6 stroke-[2.2]" />}
-                  {idx === 1 && <Clock className="w-6 h-6 stroke-[2.2]" />}
-                  {idx === 2 && <Building2 className="w-6 h-6 stroke-[2.2]" />}
-                  {idx === 3 && <Award className="w-6 h-6 stroke-[2.2]" />}
+          {statistics.map((stat, idx) => {
+            const getTargetPage = (i) => {
+              switch(i) {
+                case 0: return 'fleet';
+                case 1: return 'about';
+                case 2: return 'services';
+                case 3: return 'projects';
+                default: return 'services';
+              }
+            };
+            return (
+              <StaggerItem key={idx} direction="up">
+                <div 
+                  onClick={() => handleNav(getTargetPage(idx))}
+                  className="card-luxury rounded-2xl p-6 text-center group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 transform active:scale-95"
+                  title={`Tap to explore ${stat.label}`}
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-100 to-amber-100 text-orange-600 flex items-center justify-center mx-auto mb-4 group-hover:scale-115 group-hover:rotate-6 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white transition-all duration-300 shadow-md group-hover:shadow-orange-500/30">
+                    {idx === 0 && <Truck className="w-6 h-6 stroke-[2.2]" />}
+                    {idx === 1 && <Clock className="w-6 h-6 stroke-[2.2]" />}
+                    {idx === 2 && <Building2 className="w-6 h-6 stroke-[2.2]" />}
+                    {idx === 3 && <Award className="w-6 h-6 stroke-[2.2]" />}
+                  </div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600 font-heading mb-1 tracking-tight group-hover:scale-105 transition-transform duration-300">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm font-bold text-slate-900 mb-1 group-hover:text-orange-600 transition-colors">
+                    {stat.label}
+                  </div>
+                  <div className="text-xs text-slate-500">
+                    {stat.subtext}
+                  </div>
+                  <div className="mt-3 text-[11px] font-bold text-orange-600 opacity-80 group-hover:opacity-100 flex items-center justify-center gap-1">
+                    <span>Explore</span>
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600 font-heading mb-1 tracking-tight group-hover:scale-105 transition-transform duration-300">
-                  {stat.value}
-                </div>
-                <div className="text-sm font-bold text-slate-900 mb-1 group-hover:text-orange-600 transition-colors">
-                  {stat.label}
-                </div>
-                <div className="text-xs text-slate-500">
-                  {stat.subtext}
-                </div>
-              </div>
-            </StaggerItem>
-          ))}
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
       </section>
 
@@ -340,17 +357,25 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
                         className="w-full h-full object-cover img-filter-hover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
-                    <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-orange-300 transition-colors">
-                      <Award className="w-6 h-6 text-orange-600 mb-2" />
-                      <h4 className="text-slate-900 font-bold text-sm font-heading">ISO 9001:2015 Certified</h4>
+                    <div 
+                      onClick={() => handleNav('about')}
+                      className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-orange-300 transition-colors cursor-pointer active:scale-95 group/card"
+                      title="Tap to view certifications on About page"
+                    >
+                      <Award className="w-6 h-6 text-orange-600 mb-2 group-hover/card:scale-110 transition-transform" />
+                      <h4 className="text-slate-900 font-bold text-sm font-heading group-hover/card:text-orange-600 transition-colors">ISO 9001:2015 Certified</h4>
                       <p className="text-xs text-slate-500 mt-1">Quality audited processes ensuring predictable transit.</p>
                     </div>
                   </div>
 
                   <div className="space-y-4 pt-6">
-                    <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                      <Building2 className="w-6 h-6 text-blue-600 mb-2" />
-                      <h4 className="text-slate-900 font-bold text-sm font-heading">320+ Corporate Retainers</h4>
+                    <div 
+                      onClick={() => handleNav('services')}
+                      className="bg-slate-50 p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors cursor-pointer active:scale-95 group/card"
+                      title="Tap to view Corporate Services"
+                    >
+                      <Building2 className="w-6 h-6 text-blue-600 mb-2 group-hover/card:scale-110 transition-transform" />
+                      <h4 className="text-slate-900 font-bold text-sm font-heading group-hover/card:text-blue-600 transition-colors">320+ Corporate Retainers</h4>
                       <p className="text-xs text-slate-500 mt-1">Trusted by tech hubs, manufacturers & FMCG brands.</p>
                     </div>
                     <div 
@@ -530,28 +555,49 @@ const HomePage = ({ setActivePage, onSelectImage, onSelectService, onNavigateCon
         </Reveal>
 
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {whyChooseUs.map((item, idx) => (
-            <StaggerItem key={idx} direction="up">
-              <div 
-                className="card-luxury rounded-2xl p-7 group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-100 border border-orange-200 text-orange-600 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white transition-all duration-300 shadow-sm">
-                  {idx === 0 && <ShieldCheck className="w-7 h-7" />}
-                  {idx === 1 && <Activity className="w-7 h-7" />}
-                  {idx === 2 && <Clock className="w-7 h-7" />}
-                  {idx === 3 && <Truck className="w-7 h-7" />}
-                  {idx === 4 && <Users className="w-7 h-7" />}
-                  {idx === 5 && <MapPin className="w-7 h-7" />}
+          {whyChooseUs.map((item, idx) => {
+            const getWhyTarget = (i) => {
+              switch(i) {
+                case 0: return 'about';
+                case 1: return 'fleet';
+                case 2: return 'about';
+                case 3: return 'fleet';
+                case 4: return 'contact';
+                case 5: return 'services';
+                default: return 'services';
+              }
+            };
+            return (
+              <StaggerItem key={idx} direction="up">
+                <div 
+                  onClick={() => handleNav(getWhyTarget(idx))}
+                  className="card-luxury rounded-2xl p-7 group cursor-pointer hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 active:scale-95 flex flex-col justify-between"
+                  title={`Tap to learn more about ${item.title}`}
+                >
+                  <div>
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-100 border border-orange-200 text-orange-600 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                      {idx === 0 && <ShieldCheck className="w-7 h-7" />}
+                      {idx === 1 && <Activity className="w-7 h-7" />}
+                      {idx === 2 && <Clock className="w-7 h-7" />}
+                      {idx === 3 && <Truck className="w-7 h-7" />}
+                      {idx === 4 && <Users className="w-7 h-7" />}
+                      {idx === 5 && <MapPin className="w-7 h-7" />}
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 font-heading mb-2 group-hover:text-orange-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center text-xs font-bold text-orange-600 group-hover:text-orange-700">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-1.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 font-heading mb-2 group-hover:text-orange-600 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            </StaggerItem>
-          ))}
+              </StaggerItem>
+            );
+          })}
         </StaggerContainer>
       </section>
 

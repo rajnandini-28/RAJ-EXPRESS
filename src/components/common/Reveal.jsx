@@ -87,6 +87,7 @@ export const StaggerContainer = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
+      animate="visible"
       viewport={{ once: once, margin: "-40px" }}
       variants={{
         hidden: { opacity: 0 },

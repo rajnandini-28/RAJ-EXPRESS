@@ -135,13 +135,27 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
               </p>
 
               <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-1 sm:pt-2">
-                <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-sm">
-                  <span className="text-xl sm:text-2xl font-extrabold text-orange-600 font-heading block">320+</span>
-                  <span className="text-[11px] sm:text-xs text-slate-700 font-semibold">Enterprise Retainers</span>
+                <div 
+                  onClick={() => setActivePage ? setActivePage('services') : onNavigateContact && onNavigateContact()}
+                  className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-sm hover:border-orange-400 hover:shadow-md cursor-pointer transition-all active:scale-95 group/stat"
+                  title="Tap to explore Enterprise Services"
+                >
+                  <span className="text-xl sm:text-2xl font-extrabold text-orange-600 font-heading block group-hover/stat:scale-105 transition-transform">320+</span>
+                  <span className="text-[11px] sm:text-xs text-slate-700 font-semibold flex items-center justify-between mt-0.5">
+                    <span>Enterprise Retainers</span>
+                    <ArrowRight className="w-3 h-3 text-orange-500 opacity-0 group-hover/stat:opacity-100 transition-opacity" />
+                  </span>
                 </div>
-                <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-sm">
-                  <span className="text-xl sm:text-2xl font-extrabold text-emerald-600 font-heading block">99.4%</span>
-                  <span className="text-[11px] sm:text-xs text-slate-700 font-semibold">On-Time Delivery SLA</span>
+                <div 
+                  onClick={() => setActivePage ? setActivePage('projects') : onNavigateContact && onNavigateContact()}
+                  className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-sm hover:border-emerald-400 hover:shadow-md cursor-pointer transition-all active:scale-95 group/stat"
+                  title="Tap to view Delivered Projects"
+                >
+                  <span className="text-xl sm:text-2xl font-extrabold text-emerald-600 font-heading block group-hover/stat:scale-105 transition-transform">99.4%</span>
+                  <span className="text-[11px] sm:text-xs text-slate-700 font-semibold flex items-center justify-between mt-0.5">
+                    <span>On-Time Delivery SLA</span>
+                    <ArrowRight className="w-3 h-3 text-emerald-500 opacity-0 group-hover/stat:opacity-100 transition-opacity" />
+                  </span>
                 </div>
               </div>
             </div>

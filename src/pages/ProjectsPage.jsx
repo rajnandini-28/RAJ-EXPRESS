@@ -69,7 +69,11 @@ const ProjectsPage = ({ onNavigateContact, onSelectImage }) => {
 
       {/* 2. Featured Real-World Projects Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <StaggerContainer 
+          key={selectedCategory}
+          staggerDelay={0.12} 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+        >
           {filteredProjects.map((project) => (
             <StaggerItem key={project.id} direction="up">
               <ProjectCard

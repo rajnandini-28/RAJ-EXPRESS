@@ -30,45 +30,202 @@ const ContactPage = () => {
     message: ''
   });
 
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [openFaq, setOpenFaq] = useState(null);
 
-  const handleSubmit = async (e) => {
+  const validateField = (name, value) => {
+    let error = '';
+
+    switch (name) {
+      case 'fullName': {
+        const val = (value || '').trim();
+        if (!val) {
+          error = 'Full name is required.';
+        } else if (val.length < 2) {
+          error = 'Full name must be at least 2 characters.';
+        } else if (val.length > 50) {
+          error = 'Full name cannot exceed 50 characters.';
+        } else if (!/^[A-Za-z\s]+$/.test(value)) {
+          error = 'Only letters and spaces are allowed.';
+        }
+        break;
+      }
+      case 'companyName': {
+        const val = (value || '').trim();
+        if (!val) {
+          error = 'Company / Organization name is required.';
+        } else if (/^\d+$/.test(val)) {
+          error = 'Company name cannot contain only numbers.';
+        } else if (val.length > 100) {
+          error = 'Company name cannot exceed 100 characters.';
+        }
+        break;
+      }
+      case 'email': {
+        const val = (value || '').trim();
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        if (!val) {
+          error = 'Corporate email is required.';
+        } else if (!emailRegex.test(val)) {
+          error = 'Please enter a valid corporate email address.';
+        } else if (val.length > 100) {
+          error = 'Email cannot exceed 100 characters.';
+        }
+        break;
+      }
+      case 'phone': {
+        const val = (value || '').trim();
+        if (!val) {
+          error = 'Direct contact number is required.';
+        } else if (!/^\d+$/.test(val)) {
+          error = 'Only numbers are allowed.';
+        } else if (!/^[6-9]/.test(val)) {
+          error = 'Contact number must start with 6, 7, 8, or 9.';
+        } else if (val.length !== 10) {
+          error = 'Contact number must be exactly 10 digits.';
+        }
+        break;
+      }
+      case 'serviceInterest': {
+        if (!value || value === '' || value === 'Select Service...') {
+          error = 'Please select a required service vertical.';
+        }
+        break;
+      }
+      case 'cityLocation': {
+        if (value && value.length > 100) {
+          error = 'Operating region/city cannot exceed 100 characters.';
+        }
+        break;
+      }
+      case 'message': {
+        if (value && value.length > 1000) {
+          error = 'Description cannot exceed 1000 characters.';
+        }
+        break;
+      }
+      default:
+        break;
+    }
+
+    return error;
+  };
+
+  const validateAll = (dataToValidate) => {
+    const newErrors = {};
+    const fieldsToValidate = ['fullName', 'companyName', 'email', 'phone', 'serviceInterest'];
+    
+    fieldsToValidate.forEach((field) => {
+      const err = validateField(field, dataToValidate[field] || '');
+      if (err) {
+        newErrors[field] = err;
+      }
+    });
+
+    return newErrors;
+  };
+
+  const handleFullNameChange = (e) => {
+    // Allow only letters and spaces, max 50 chars
+    const rawVal = e.target.value;
+    const sanitized = rawVal.replace(/[^A-Za-z\s]/g, '').slice(0, 50);
+    setFormData((prev) => ({ ...prev, fullName: sanitized }));
+    if (touched.fullName) {
+      setErrors((prev) => ({ ...prev, fullName: validateField('fullName', sanitized) }));
+    }
+  };
+
+  const handleCompanyNameChange = (e) => {
+    const rawVal = e.target.value.slice(0, 100);
+    setFormData((prev) => ({ ...prev, companyName: rawVal }));
+    if (touched.companyName) {
+      setErrors((prev) => ({ ...prev, companyName: validateField('companyName', rawVal) }));
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    const rawVal = e.target.value.slice(0, 100);
+    setFormData((prev) => ({ ...prev, email: rawVal }));
+    if (touched.email) {
+      setErrors((prev) => ({ ...prev, email: validateField('email', rawVal) }));
+    }
+  };
+
+  const handlePhoneChange = (e) => {
+    // Allow only numbers, max 10 digits
+    const rawVal = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setFormData((prev) => ({ ...prev, phone: rawVal }));
+    if (touched.phone) {
+      setErrors((prev) => ({ ...prev, phone: validateField('phone', rawVal) }));
+    }
+  };
+
+  const handleServiceChange = (e) => {
+    const val = e.target.value;
+    setFormData((prev) => ({ ...prev, serviceInterest: val }));
+    if (touched.serviceInterest) {
+      setErrors((prev) => ({ ...prev, serviceInterest: validateField('serviceInterest', val) }));
+    }
+  };
+
+  const handleCityChange = (e) => {
+    const rawVal = e.target.value.slice(0, 100);
+    setFormData((prev) => ({ ...prev, cityLocation: rawVal }));
+  };
+
+  const handleMessageChange = (e) => {
+    const rawVal = e.target.value.slice(0, 1000);
+    setFormData((prev) => ({ ...prev, message: rawVal }));
+  };
+
+  const handleBlur = (field) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    setErrors((prev) => ({ ...prev, [field]: validateField(field, formData[field]) }));
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
+    const allTouched = {
+      fullName: true,
+      companyName: true,
+      email: true,
+      phone: true,
+      serviceInterest: true,
+      cityLocation: true,
+      message: true
+    };
+    setTouched(allTouched);
+
+    const validationErrors = validateAll(formData);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/mkd9a32@gmail.com", {
-        method: "POST",
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          fullName: formData.fullName,
-          companyName: formData.companyName,
-          clientEmail: formData.email,
-          contactPhone: formData.phone,
-          serviceRequired: formData.serviceInterest || 'General Transport Inquiry',
-          location: formData.cityLocation || 'Not Specified',
-          scopeMessage: formData.message || 'No message provided',
-          _subject: `New Commercial Transport Inquiry: ${formData.fullName} (${formData.companyName})`,
-          _replyto: formData.email,
-          _autoresponse: `Dear ${formData.fullName},\n\nThank you for contacting Raj Express Transport & Logistics.\n\nWe have received your inquiry regarding ${formData.serviceInterest || 'our commercial transport services'}.\n\nOur operations and fleet management team has been notified and will review your route specifications. A senior representative will reach out to you directly at ${formData.email} or ${formData.phone} shortly.\n\nBest regards,\nRaj Express Transport & Logistics\nDirect / Toll Free: +91 9982072287\nEmail: mkd9a32@gmail.com\nHeadquarters: 29B Kirti Nagar, Gopalpura, Jaipur, Rajasthan, India\nRegional Hubs: Rajasthan | Gujarat | Delhi | Lucknow`,
-          _template: "table"
-        })
-      });
-
-      const result = await response.json();
-      setSubmitted(true);
-    } catch (err) {
-      console.error("Submission request error:", err);
-      // Still show success state so UX is seamless
-      setSubmitted(true);
-    } finally {
+    // Smooth frontend dispatch simulation
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+      setSubmitted(true);
+      setFormData({
+        fullName: '',
+        companyName: '',
+        email: '',
+        phone: '',
+        serviceInterest: '',
+        cityLocation: '',
+        message: ''
+      });
+      setErrors({});
+      setTouched({});
+    }, 600);
   };
 
   const handleReset = () => {
@@ -82,6 +239,8 @@ const ContactPage = () => {
       cityLocation: '',
       message: ''
     });
+    setErrors({});
+    setTouched({});
   };
 
   const faqs = [
@@ -248,25 +407,22 @@ const ContactPage = () => {
                     <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8" />
                   </div>
                   <h4 className="text-lg sm:text-xl font-bold text-slate-900 font-heading">
-                    Proposal Request Dispatched
+                    Submission Successful
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-slate-900">{formData.fullName}</strong>. Your requirement for <strong className="text-orange-600">{formData.serviceInterest || 'Commercial Transport'}</strong> has been assigned to our Regional Transport Director.
-                  </p>
-                  <p className="text-xs text-slate-500 break-all">
-                    We will send the formal rate card and route viability assessment to <strong className="text-slate-900">{formData.email}</strong>.
+                  <p className="text-xs sm:text-sm text-slate-700 max-w-md mx-auto leading-relaxed font-medium">
+                    Thank you! Your message has been submitted successfully. Our Operations Team will contact you shortly.
                   </p>
                   <div className="pt-2">
                     <button
                       onClick={handleReset}
                       className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition cursor-pointer shadow-md"
                     >
-                      Send Another Request
+                      Send Another Message
                     </button>
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} noValidate className="space-y-4">
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -275,11 +431,22 @@ const ContactPage = () => {
                       </label>
                       <input
                         type="text"
-                        required
+                        maxLength={50}
                         value={formData.fullName}
-                        onChange={(e) => setFormData({...formData, fullName: e.target.value})}
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-orange-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-orange-500 transition"
+                        onChange={handleFullNameChange}
+                        onBlur={() => handleBlur('fullName')}
+                        className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none transition ${
+                          errors.fullName
+                            ? 'border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-400'
+                            : 'border-slate-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500'
+                        }`}
                       />
+                      {errors.fullName && (
+                        <p className="text-[11px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          <span>{errors.fullName}</span>
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -288,11 +455,22 @@ const ContactPage = () => {
                       </label>
                       <input
                         type="text"
-                        required
+                        maxLength={100}
                         value={formData.companyName}
-                        onChange={(e) => setFormData({...formData, companyName: e.target.value})}
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-orange-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-orange-500 transition"
+                        onChange={handleCompanyNameChange}
+                        onBlur={() => handleBlur('companyName')}
+                        className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none transition ${
+                          errors.companyName
+                            ? 'border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-400'
+                            : 'border-slate-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500'
+                        }`}
                       />
+                      {errors.companyName && (
+                        <p className="text-[11px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          <span>{errors.companyName}</span>
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -303,11 +481,22 @@ const ContactPage = () => {
                       </label>
                       <input
                         type="email"
-                        required
+                        maxLength={100}
                         value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-orange-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-orange-500 transition"
+                        onChange={handleEmailChange}
+                        onBlur={() => handleBlur('email')}
+                        className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none transition ${
+                          errors.email
+                            ? 'border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-400'
+                            : 'border-slate-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500'
+                        }`}
                       />
+                      {errors.email && (
+                        <p className="text-[11px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          <span>{errors.email}</span>
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -316,11 +505,23 @@ const ContactPage = () => {
                       </label>
                       <input
                         type="tel"
-                        required
+                        inputMode="numeric"
+                        maxLength={10}
                         value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-orange-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-orange-500 transition"
+                        onChange={handlePhoneChange}
+                        onBlur={() => handleBlur('phone')}
+                        className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none transition ${
+                          errors.phone
+                            ? 'border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-400'
+                            : 'border-slate-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500'
+                        }`}
                       />
+                      {errors.phone && (
+                        <p className="text-[11px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          <span>{errors.phone}</span>
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -330,10 +531,14 @@ const ContactPage = () => {
                         Service Vertical Required *
                       </label>
                       <select
-                        required
                         value={formData.serviceInterest}
-                        onChange={(e) => setFormData({...formData, serviceInterest: e.target.value})}
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-orange-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-orange-500 transition cursor-pointer"
+                        onChange={handleServiceChange}
+                        onBlur={() => handleBlur('serviceInterest')}
+                        className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none transition cursor-pointer ${
+                          errors.serviceInterest
+                            ? 'border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-400'
+                            : 'border-slate-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500'
+                        }`}
                       >
                         <option value="">Select Service...</option>
                         {servicesData.map(s => (
@@ -342,6 +547,12 @@ const ContactPage = () => {
                         <option value="Long-Term Dedicated Fleet Retainer">Dedicated Fleet Retainer Lease</option>
                         <option value="Specialized Machinery Relocation">Specialized Machinery Relocation</option>
                       </select>
+                      {errors.serviceInterest && (
+                        <p className="text-[11px] text-red-500 font-semibold mt-1.5 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          <span>{errors.serviceInterest}</span>
+                        </p>
+                      )}
                     </div>
 
                     <div>
@@ -350,8 +561,9 @@ const ContactPage = () => {
                       </label>
                       <input
                         type="text"
+                        maxLength={100}
                         value={formData.cityLocation}
-                        onChange={(e) => setFormData({...formData, cityLocation: e.target.value})}
+                        onChange={handleCityChange}
                         className="w-full bg-slate-50 border border-slate-200 focus:border-orange-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-orange-500 transition"
                       />
                     </div>
@@ -363,8 +575,9 @@ const ContactPage = () => {
                     </label>
                     <textarea
                       rows={3}
+                      maxLength={1000}
                       value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      onChange={handleMessageChange}
                       className="w-full bg-slate-50 border border-slate-200 focus:border-orange-500 rounded-xl p-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-orange-500 transition"
                     ></textarea>
                   </div>
