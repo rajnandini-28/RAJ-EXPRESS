@@ -22,7 +22,7 @@ const ServiceCard = ({ service, onSelectService, onSelectImage }) => {
   };
 
   return (
-    <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 transform">
+    <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400 transition-all duration-300 transform">
       {/* Service Header Image - Click to open modal */}
       <div 
         onClick={handleImageClick}
@@ -47,7 +47,7 @@ const ServiceCard = ({ service, onSelectService, onSelectImage }) => {
 
         {/* Category Pill with Glassmorphism */}
         <div className="absolute top-4 left-4">
-          <span className="glassmorphism text-orange-700 border border-orange-200 text-xs font-bold px-3 py-1 rounded-full shadow-sm group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
+          <span className="glassmorphism text-blue-800 border border-blue-200 text-xs font-bold px-3 py-1 rounded-full shadow-sm group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:text-white group-hover:border-transparent transition-all duration-300">
             {service.category}
           </span>
         </div>
@@ -63,7 +63,7 @@ const ServiceCard = ({ service, onSelectService, onSelectImage }) => {
       {/* Service Content */}
       <div className="p-6 flex-1 flex flex-col justify-between space-y-5">
         <div>
-          <h3 className="text-xl font-bold text-slate-900 font-heading group-hover:text-orange-600 transition-colors mb-2">
+          <h3 className="text-xl font-bold text-slate-900 font-heading group-hover:text-blue-600 transition-colors mb-2">
             {service.title}
           </h3>
 
@@ -79,7 +79,7 @@ const ServiceCard = ({ service, onSelectService, onSelectImage }) => {
             <ul className="space-y-1.5">
               {service.keyFeatures.slice(0, 4).map((feat, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-xs text-slate-700">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-orange-600 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                   <span className="line-clamp-1 font-medium">{feat}</span>
                 </li>
               ))}
@@ -88,13 +88,13 @@ const ServiceCard = ({ service, onSelectService, onSelectImage }) => {
         </div>
 
         {/* Fleet Allocation info */}
-        <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs group-hover:bg-orange-50/20 group-hover:border-orange-200/60 transition-colors">
+        <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs group-hover:bg-blue-50/20 group-hover:border-blue-200/60 transition-colors">
           <span className="text-[10px] uppercase font-bold text-slate-500 block mb-1">
             Standard Fleet Units:
           </span>
           <div className="flex flex-wrap gap-1.5">
             {service.fleetUsed.map((item, idx) => (
-              <span key={idx} className="text-[11px] bg-amber-50 text-orange-900 px-2 py-0.5 rounded-md border border-orange-200/70 font-medium group-hover:bg-white transition-colors">
+              <span key={idx} className="text-[11px] bg-blue-50 text-blue-900 px-2 py-0.5 rounded-md border border-blue-200/70 font-medium group-hover:bg-white transition-colors">
                 {item}
               </span>
             ))}
@@ -105,7 +105,7 @@ const ServiceCard = ({ service, onSelectService, onSelectImage }) => {
         <div className="pt-2 border-t border-slate-100">
           <button
             onClick={() => onSelectService && onSelectService(service.id)}
-            className="w-full bg-slate-900 hover:bg-gradient-to-r hover:from-orange-500 hover:to-amber-500 hover:text-white text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all duration-300 shadow-sm cursor-pointer btn-luxury"
+            className="w-full bg-slate-900 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white text-white font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all duration-300 shadow-sm cursor-pointer btn-luxury"
           >
             <span>View Service Details</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

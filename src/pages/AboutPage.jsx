@@ -102,7 +102,7 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
                 <span className="glassmorphism text-slate-900 border border-white px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-xl text-xs font-semibold">
                   450+ Vehicles
                 </span>
-                <span className="bg-orange-500 text-white px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-xl text-xs font-bold shadow">
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-xl text-xs font-bold shadow">
                   ISO 9001:2015
                 </span>
               </div>
@@ -117,8 +117,8 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
           {/* Story from Left */}
           <Reveal direction="left" delay={0.1}>
             <div className="space-y-4 sm:space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-orange-50 text-orange-700 border border-orange-200">
-                <Compass className="w-3.5 h-3.5 text-orange-600" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-200">
+                <Compass className="w-3.5 h-3.5 text-blue-600" />
                 <span>Our Story & Mission</span>
               </div>
 
@@ -137,13 +137,13 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
               <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-1 sm:pt-2">
                 <div 
                   onClick={() => setActivePage ? setActivePage('services') : onNavigateContact && onNavigateContact()}
-                  className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-sm hover:border-orange-400 hover:shadow-md cursor-pointer transition-all active:scale-95 group/stat"
+                  className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-sm hover:border-blue-400 hover:shadow-md cursor-pointer transition-all active:scale-95 group/stat"
                   title="Tap to explore Enterprise Services"
                 >
-                  <span className="text-xl sm:text-2xl font-extrabold text-orange-600 font-heading block group-hover/stat:scale-105 transition-transform">320+</span>
+                  <span className="text-xl sm:text-2xl font-extrabold text-blue-600 font-heading block group-hover/stat:scale-105 transition-transform">320+</span>
                   <span className="text-[11px] sm:text-xs text-slate-700 font-semibold flex items-center justify-between mt-0.5">
                     <span>Enterprise Retainers</span>
-                    <ArrowRight className="w-3 h-3 text-orange-500 opacity-0 group-hover/stat:opacity-100 transition-opacity" />
+                    <ArrowRight className="w-3 h-3 text-blue-500 opacity-0 group-hover/stat:opacity-100 transition-opacity" />
                   </span>
                 </div>
                 <div 
@@ -164,8 +164,8 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
           {/* Mission & Vision Cards from Right */}
           <Reveal direction="right" delay={0.2}>
             <div className="space-y-4 sm:space-y-6">
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 relative overflow-hidden group hover:border-orange-300 transition-colors shadow-sm">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center mb-3 sm:mb-4">
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 relative overflow-hidden group hover:border-blue-300 transition-colors shadow-sm">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3 sm:mb-4">
                   <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-heading mb-1.5 sm:mb-2">Our Mission</h3>
@@ -174,8 +174,8 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
                 </p>
               </div>
 
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 relative overflow-hidden group hover:border-orange-300 transition-colors shadow-sm">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3 sm:mb-4">
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 relative overflow-hidden group hover:border-blue-300 transition-colors shadow-sm">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-3 sm:mb-4">
                   <Compass className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-heading mb-1.5 sm:mb-2">Our Vision</h3>
@@ -202,9 +202,9 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {companyValues.map((val, idx) => (
             <StaggerItem key={idx} direction="up">
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:border-orange-300 transition-all shadow-sm">
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:border-blue-300 transition-all shadow-sm">
                 <div>
-                  <div className="w-8 h-8 rounded-lg bg-orange-50 text-orange-600 font-extrabold text-sm flex items-center justify-center mb-3 sm:mb-4">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 font-extrabold text-sm flex items-center justify-center mb-3 sm:mb-4">
                     0{idx + 1}
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 font-heading mb-1.5">{val.title}</h4>
@@ -230,7 +230,7 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {safetyProtocols.map((item, idx) => (
                 <div key={idx} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-6 flex items-start gap-3.5 sm:gap-4">
-                  <div className="p-2 rounded-xl bg-orange-100 text-orange-600 shrink-0 mt-0.5">
+                  <div className="p-2 rounded-xl bg-blue-100 text-blue-600 shrink-0 mt-0.5">
                     <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
@@ -277,7 +277,7 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
         <StaggerContainer staggerDelay={0.15} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {leadershipTeam.map((exec, idx) => (
             <StaggerItem key={idx} direction="up">
-              <div className="card-luxury rounded-2xl overflow-hidden group hover:border-orange-300 transition-all shadow-sm">
+              <div className="card-luxury rounded-2xl overflow-hidden group hover:border-blue-300 transition-all shadow-sm">
                 <div 
                   onClick={() => onSelectImage && onSelectImage({
                     image: exec.image,
@@ -295,7 +295,7 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
                   />
                 </div>
                 <div className="p-5 sm:p-6 space-y-2">
-                  <p className="text-[11px] sm:text-xs text-orange-600 font-semibold uppercase">{exec.role}</p>
+                  <p className="text-[11px] sm:text-xs text-blue-600 font-semibold uppercase">{exec.role}</p>
                   <h4 className="text-lg sm:text-xl font-bold text-slate-900 font-heading">{exec.name}</h4>
                   <p className="text-xs text-slate-500 font-medium">{exec.experience}</p>
                   <p className="text-xs text-slate-600 leading-relaxed pt-2 border-t border-slate-100">
@@ -311,20 +311,20 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
       {/* 6. CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal direction="up">
-          <div className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 rounded-3xl p-6 sm:p-10 text-center space-y-4 text-white shadow-xl">
+          <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 rounded-3xl p-6 sm:p-10 text-center space-y-4 text-white shadow-xl border border-blue-500/30">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white font-heading">
               Looking for a Proven Commercial Fleet Partner?
             </h3>
-            <p className="text-xs sm:text-sm text-orange-50 max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-blue-100 max-w-xl mx-auto">
               Our team is available to review your corporate routing schedules, shift transport specs, and freight requirements.
             </p>
             <div className="pt-2">
               <button
                 onClick={() => onNavigateContact ? onNavigateContact() : setActivePage('contact')}
-                className="bg-white hover:bg-slate-100 text-slate-900 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-lg hover:scale-[1.02] transition"
+                className="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-lg hover:scale-[1.02] transition btn-luxury"
               >
-                <span className="text-orange-700">Contact Our Leadership Team</span>
-                <ArrowRight className="w-4 h-4 text-orange-600" />
+                <span className="text-slate-950 font-extrabold">Contact Our Leadership Team</span>
+                <ArrowRight className="w-4 h-4 text-slate-950" />
               </button>
             </div>
           </div>

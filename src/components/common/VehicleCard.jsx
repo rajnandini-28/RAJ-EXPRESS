@@ -15,7 +15,7 @@ const VehicleCard = ({ vehicle, onNavigateContact, onSelectImage }) => {
   };
 
   return (
-    <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-orange-500/20 hover:border-orange-400 transition-all duration-300 transform">
+    <div className="card-luxury rounded-2xl flex flex-col group cursor-pointer hover:-translate-y-2.5 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-400 transition-all duration-300 transform">
       {/* Vehicle Image Container - Click to open modal */}
       <div 
         onClick={handleImageClick}
@@ -40,7 +40,7 @@ const VehicleCard = ({ vehicle, onNavigateContact, onSelectImage }) => {
 
         {/* Category Badge with Glassmorphism */}
         <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-          <span className="glassmorphism text-orange-700 border border-orange-200/90 text-[11px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-sm group-hover:bg-gradient-to-r group-hover:from-orange-500 group-hover:to-amber-500 group-hover:text-white group-hover:border-transparent transition-all duration-300">
+          <span className="glassmorphism text-blue-800 border border-blue-200/90 text-[11px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-sm group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:text-white group-hover:border-transparent transition-all duration-300">
             {vehicle.category}
           </span>
         </div>
@@ -69,9 +69,9 @@ const VehicleCard = ({ vehicle, onNavigateContact, onSelectImage }) => {
       <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3.5 sm:space-y-4">
         
         {/* Key Specs Grid */}
-        <div className="grid grid-cols-2 gap-2 bg-slate-50 p-2.5 sm:p-3 rounded-xl border border-slate-100 text-xs group-hover:border-orange-200/70 group-hover:bg-orange-50/20 transition-colors duration-300">
+        <div className="grid grid-cols-2 gap-2 bg-slate-50 p-2.5 sm:p-3 rounded-xl border border-slate-100 text-xs group-hover:border-blue-200/70 group-hover:bg-blue-50/20 transition-colors duration-300">
           <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-orange-100 text-orange-600 shrink-0 group-hover:scale-110 transition-transform">
+            <div className="p-1.5 rounded-lg bg-blue-100 text-blue-600 shrink-0 group-hover:scale-110 transition-transform">
               <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
             <div className="min-w-0">
@@ -96,7 +96,7 @@ const VehicleCard = ({ vehicle, onNavigateContact, onSelectImage }) => {
           <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
             Primary Application:
           </span>
-          <p className="text-xs text-slate-700 line-clamp-2 bg-amber-50/40 p-2 sm:p-2.5 rounded-lg border border-amber-100/70 leading-relaxed font-medium group-hover:border-amber-200 transition-colors">
+          <p className="text-xs text-slate-700 line-clamp-2 bg-blue-50/40 p-2 sm:p-2.5 rounded-lg border border-blue-100/70 leading-relaxed font-medium group-hover:border-blue-200 transition-colors">
             {vehicle.mainUse}
           </p>
         </div>
@@ -110,7 +110,7 @@ const VehicleCard = ({ vehicle, onNavigateContact, onSelectImage }) => {
             {vehicle.features.slice(0, 3).map((feat, idx) => (
               <span 
                 key={idx} 
-                className="text-[10px] sm:text-[11px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md border border-slate-200/80 font-medium group-hover:border-orange-200 group-hover:bg-white transition-colors"
+                className="text-[10px] sm:text-[11px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md border border-slate-200/80 font-medium group-hover:border-blue-200 group-hover:bg-white transition-colors"
               >
                 {feat}
               </span>
@@ -127,7 +127,7 @@ const VehicleCard = ({ vehicle, onNavigateContact, onSelectImage }) => {
           {onNavigateContact && (
             <button
               onClick={() => onNavigateContact()}
-              className="text-orange-600 hover:text-orange-700 font-extrabold text-xs flex items-center gap-1.5 cursor-pointer group-hover:translate-x-1 transition-all"
+              className="text-blue-600 hover:text-blue-700 font-extrabold text-xs flex items-center gap-1.5 cursor-pointer group-hover:translate-x-1 transition-all"
             >
               <span>Contact Us</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />

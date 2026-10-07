@@ -5,7 +5,7 @@ import {
   Maximize2, 
   Filter, 
   Tag, 
-  Sparkles,
+  Sparkles, 
   ArrowRight
 } from 'lucide-react';
 import SectionHeader from '../components/common/SectionHeader';
@@ -45,8 +45,8 @@ const GalleryPage = ({ onSelectImage, onNavigateContact }) => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-orange-500 text-white shadow-md shadow-orange-500/20 font-bold'
-                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 shadow-sm'
+                  ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20 font-bold'
+                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 shadow-sm hover:border-blue-300'
               }`}
             >
               {cat}
@@ -62,7 +62,7 @@ const GalleryPage = ({ onSelectImage, onNavigateContact }) => {
             <div
               key={item.id}
               onClick={() => onSelectImage && onSelectImage(item)}
-              className="group relative h-56 sm:h-72 lg:h-80 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 hover:border-orange-400 shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col justify-end"
+              className="group relative h-56 sm:h-72 lg:h-80 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 hover:border-blue-400 shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 flex flex-col justify-end"
             >
               <img 
                 src={item.image} 
@@ -74,7 +74,7 @@ const GalleryPage = ({ onSelectImage, onNavigateContact }) => {
 
               {/* Category Pill */}
               <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
-                <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] uppercase font-bold bg-white/90 backdrop-blur-md text-orange-600 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-orange-200 shadow-md">
+                <span className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] uppercase font-bold bg-white/90 backdrop-blur-md text-blue-700 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-blue-200 shadow-md">
                   <Tag className="w-3 h-3" />
                   {item.category}
                 </span>
@@ -82,7 +82,7 @@ const GalleryPage = ({ onSelectImage, onNavigateContact }) => {
 
               {/* Zoom Icon Hint */}
               <div className="absolute top-3 right-3 sm:top-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 text-orange-600 flex items-center justify-center shadow-lg border border-slate-200">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 text-blue-600 flex items-center justify-center shadow-lg border border-slate-200">
                   <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
               </div>
@@ -104,7 +104,7 @@ const GalleryPage = ({ onSelectImage, onNavigateContact }) => {
       {/* 3. Depot & Infrastructure Note */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 lg:p-12 text-center max-w-4xl mx-auto space-y-3.5 shadow-sm">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center mx-auto">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto">
             <ImageIcon className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-heading">
@@ -116,7 +116,7 @@ const GalleryPage = ({ onSelectImage, onNavigateContact }) => {
           <div className="pt-2">
             <button
               onClick={() => onNavigateContact && onNavigateContact()}
-              className="bg-orange-50 hover:bg-orange-500 hover:text-white text-orange-700 font-bold px-6 py-2.5 rounded-xl text-xs inline-flex items-center gap-2 border border-orange-200 transition cursor-pointer"
+              className="bg-blue-50 hover:bg-blue-600 hover:text-white text-blue-700 font-bold px-6 py-2.5 rounded-xl text-xs inline-flex items-center gap-2 border border-blue-200 transition cursor-pointer"
             >
               <span>Contact Us for Depot Scheduling</span>
               <ArrowRight className="w-3.5 h-3.5" />

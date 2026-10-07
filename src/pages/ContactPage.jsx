@@ -298,7 +298,7 @@ const ContactPage = () => {
 
                   <div className="space-y-4 text-xs sm:text-sm">
                     <div className="flex items-start gap-3">
-                      <div className="p-2 sm:p-2.5 rounded-xl bg-orange-50 text-orange-600 shrink-0 mt-0.5 border border-orange-200/60">
+                      <div className="p-2 sm:p-2.5 rounded-xl bg-blue-50 text-blue-600 shrink-0 mt-0.5 border border-blue-200/60">
                         <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       <div>
@@ -310,16 +310,16 @@ const ContactPage = () => {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="p-2 sm:p-2.5 rounded-xl bg-blue-50 text-blue-600 shrink-0 mt-0.5 border border-blue-200/60">
+                      <div className="p-2 sm:p-2.5 rounded-xl bg-indigo-50 text-indigo-600 shrink-0 mt-0.5 border border-indigo-200/60">
                         <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       <div>
                         <strong className="text-slate-900 block mb-0.5">Telephone Inquiries</strong>
                         <p className="text-slate-600 text-xs sm:text-sm">
-                          <a href={`tel:${companyInfo.phone}`} className="hover:text-orange-600 font-semibold block text-slate-900">
+                          <a href={`tel:${companyInfo.phone}`} className="hover:text-blue-600 font-semibold block text-slate-900">
                             Toll Free: {companyInfo.phone}
                           </a>
-                          <a href={`tel:${companyInfo.directLine}`} className="hover:text-orange-600 text-slate-500 block mt-0.5">
+                          <a href={`tel:${companyInfo.directLine}`} className="hover:text-blue-600 text-slate-500 block mt-0.5">
                             Direct Desk: {companyInfo.directLine}
                           </a>
                         </p>
@@ -333,10 +333,10 @@ const ContactPage = () => {
                       <div>
                         <strong className="text-slate-900 block mb-0.5">Corporate Email</strong>
                         <p className="text-slate-600 text-xs sm:text-sm break-all">
-                          <a href={`mailto:${companyInfo.email}`} className="hover:text-orange-600 font-medium block text-slate-900">
+                          <a href={`mailto:${companyInfo.email}`} className="hover:text-blue-600 font-medium block text-slate-900">
                             {companyInfo.email}
                           </a>
-                          <a href={`mailto:${companyInfo.inquiriesEmail}`} className="hover:text-orange-600 text-slate-500 block mt-0.5">
+                          <a href={`mailto:${companyInfo.inquiriesEmail}`} className="hover:text-blue-600 text-slate-500 block mt-0.5">
                             {companyInfo.inquiriesEmail}
                           </a>
                         </p>
@@ -363,7 +363,7 @@ const ContactPage = () => {
                     </span>
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {companyInfo.regionalHubs.map((hub, idx) => (
-                        <span key={idx} className="text-[11px] sm:text-xs bg-orange-50 text-orange-700 px-2.5 sm:px-3 py-1 rounded-lg border border-orange-200/80 font-semibold">
+                        <span key={idx} className="text-[11px] sm:text-xs bg-blue-50 text-blue-700 px-2.5 sm:px-3 py-1 rounded-lg border border-blue-200/80 font-semibold">
                           {hub}
                         </span>
                       ))}
@@ -372,8 +372,8 @@ const ContactPage = () => {
                 </div>
 
                 {/* Notice Alert */}
-                <div className="bg-orange-50 border border-orange-200 rounded-2xl p-3.5 sm:p-4 flex items-start gap-2.5 sm:gap-3 text-xs text-orange-950">
-                  <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600 shrink-0 mt-0.5" />
+                <div className="bg-blue-50/80 border border-blue-200 rounded-2xl p-3.5 sm:p-4 flex items-start gap-2.5 sm:gap-3 text-xs text-blue-950">
+                  <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 shrink-0 mt-0.5" />
                   <span>
                     <strong>Notice:</strong> Raj Express is exclusively an enterprise and commercial fleet provider. We do not provide retail bus tickets or consumer taxi dispatch.
                   </span>
@@ -389,7 +389,7 @@ const ContactPage = () => {
               <div className="bg-white border border-slate-200/90 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm">
               
               <div className="mb-6">
-                <div className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-orange-600 mb-1">
+                <div className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">
                   <Building2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   <span>Get In Touch</span>
                 </div>
@@ -415,7 +415,7 @@ const ContactPage = () => {
                   <div className="pt-2">
                     <button
                       onClick={handleReset}
-                      className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition cursor-pointer shadow-md"
+                      className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition cursor-pointer shadow-md"
                     >
                       Send Another Message
                     </button>
@@ -438,7 +438,7 @@ const ContactPage = () => {
                         className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none transition ${
                           errors.fullName
                             ? 'border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-400'
-                            : 'border-slate-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500'
+                            : 'border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
                         }`}
                       />
                       {errors.fullName && (
@@ -462,7 +462,7 @@ const ContactPage = () => {
                         className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none transition ${
                           errors.companyName
                             ? 'border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-400'
-                            : 'border-slate-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500'
+                            : 'border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
                         }`}
                       />
                       {errors.companyName && (
@@ -488,7 +488,7 @@ const ContactPage = () => {
                         className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none transition ${
                           errors.email
                             ? 'border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-400'
-                            : 'border-slate-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500'
+                            : 'border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
                         }`}
                       />
                       {errors.email && (
@@ -513,7 +513,7 @@ const ContactPage = () => {
                         className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none transition ${
                           errors.phone
                             ? 'border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-400'
-                            : 'border-slate-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500'
+                            : 'border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
                         }`}
                       />
                       {errors.phone && (
@@ -537,7 +537,7 @@ const ContactPage = () => {
                         className={`w-full bg-slate-50 border rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none transition cursor-pointer ${
                           errors.serviceInterest
                             ? 'border-red-400 bg-red-50/20 focus:border-red-500 focus:ring-1 focus:ring-red-400'
-                            : 'border-slate-200 focus:border-orange-500 focus:ring-1 focus:ring-orange-500'
+                            : 'border-slate-200 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'
                         }`}
                       >
                         <option value="">Select Service...</option>
@@ -564,7 +564,7 @@ const ContactPage = () => {
                         maxLength={100}
                         value={formData.cityLocation}
                         onChange={handleCityChange}
-                        className="w-full bg-slate-50 border border-slate-200 focus:border-orange-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-orange-500 transition"
+                        className="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-500 transition"
                       />
                     </div>
                   </div>
@@ -578,7 +578,7 @@ const ContactPage = () => {
                       maxLength={1000}
                       value={formData.message}
                       onChange={handleMessageChange}
-                      className="w-full bg-slate-50 border border-slate-200 focus:border-orange-500 rounded-xl p-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-orange-500 transition"
+                      className="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 rounded-xl p-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-500 transition"
                     ></textarea>
                   </div>
 
@@ -591,7 +591,7 @@ const ContactPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold px-7 py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-orange-500/25 transition cursor-pointer order-1 sm:order-2"
+                      className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold px-7 py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-blue-500/25 transition cursor-pointer order-1 sm:order-2 btn-luxury"
                     >
                       {isSubmitting ? (
                         <>
@@ -621,7 +621,7 @@ const ContactPage = () => {
           <div className="bg-white border border-slate-200/90 rounded-3xl overflow-hidden shadow-sm">
             <div className="p-5 sm:p-8 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
               <div>
-                <span className="text-[10px] sm:text-xs uppercase font-bold text-orange-600 tracking-wider block">
+                <span className="text-[10px] sm:text-xs uppercase font-bold text-blue-600 tracking-wider block">
                   Central Operations Depot & Headquarters
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-heading">
@@ -633,7 +633,7 @@ const ContactPage = () => {
                   href="https://www.google.com/maps/search/?api=1&query=29B+Kirti+Nagar+Gopalpura+Jaipur+Rajasthan"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs bg-orange-500 hover:bg-orange-600 text-white font-bold px-3.5 py-1.5 rounded-xl transition shadow-sm"
+                  className="inline-flex items-center gap-1.5 text-xs bg-blue-600 hover:bg-blue-700 text-white font-bold px-3.5 py-1.5 rounded-xl transition shadow-sm"
                 >
                   <MapPin className="w-3.5 h-3.5" />
                   <span>Open in Google Maps</span>
@@ -659,14 +659,14 @@ const ContactPage = () => {
               {/* Floating Location Overlay Badge */}
               <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 bg-white/95 backdrop-blur-md border border-slate-200/90 p-4 sm:p-5 rounded-2xl shadow-xl w-auto max-w-[calc(100%-1.5rem)] sm:max-w-sm space-y-2.5 transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center shrink-0 border border-orange-200/80 shadow-xs">
+                  <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 border border-blue-200/80 shadow-xs">
                     <MapPin className="w-4.5 h-4.5" />
                   </div>
                   <div>
                     <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-heading leading-tight">
                       Raj Express Transport Hub
                     </h4>
-                    <span className="text-[11px] text-orange-600 font-semibold block">Headquarters Terminal</span>
+                    <span className="text-[11px] text-blue-600 font-semibold block">Headquarters Terminal</span>
                   </div>
                 </div>
                 
@@ -678,7 +678,7 @@ const ContactPage = () => {
                   <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 text-[11px] font-medium">
                     Direct Access: NH-48
                   </span>
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-orange-50 text-orange-700 border border-orange-200/60 text-[11px] font-bold">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200/60 text-[11px] font-bold">
                     PIN: 302018
                   </span>
                 </div>
@@ -687,7 +687,7 @@ const ContactPage = () => {
               {/* Bottom Depots Bar */}
               <div className="absolute bottom-4 right-4 z-10 hidden sm:flex items-center gap-2 bg-white/95 backdrop-blur-md border border-slate-200/90 px-4 py-2 rounded-xl text-xs text-slate-700 shadow-md">
                 <span className="text-slate-500 font-medium">Regional Hubs:</span>
-                <span className="text-orange-600 font-bold">Rajasthan • Gujarat • Delhi • Lucknow</span>
+                <span className="text-blue-600 font-bold">Rajasthan • Gujarat • Delhi • Lucknow</span>
               </div>
             </div>
           </div>
@@ -715,11 +715,11 @@ const ContactPage = () => {
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 font-heading font-bold text-xs sm:text-base text-slate-900 hover:text-orange-600 transition-colors cursor-pointer"
+                    className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 font-heading font-bold text-xs sm:text-base text-slate-900 hover:text-blue-600 transition-colors cursor-pointer"
                   >
                     <span className="leading-snug">{faq.q}</span>
                     {isOpen ? (
-                      <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600 shrink-0" />
+                      <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 shrink-0" />
                     ) : (
                       <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 shrink-0" />
                     )}

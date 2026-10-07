@@ -93,15 +93,15 @@ const ServicesPage = ({ initialServiceId, onNavigateContact, onSelectImage }) =>
                   onClick={() => setActiveServiceId(svc.id)}
                   className={`p-3 sm:p-4 rounded-2xl border text-left transition-all flex flex-col justify-between h-28 sm:h-32 cursor-pointer ${
                     isSelected 
-                      ? 'bg-orange-50 border-orange-500 text-slate-950 shadow-md shadow-orange-500/10 font-semibold scale-102' 
-                      : 'bg-white border-slate-200/90 text-slate-600 hover:text-slate-900 hover:border-orange-300 shadow-sm'
+                      ? 'bg-blue-50/80 border-blue-600 text-slate-950 shadow-md shadow-blue-500/15 font-semibold scale-102' 
+                      : 'bg-white border-slate-200/90 text-slate-600 hover:text-slate-900 hover:border-blue-300 shadow-sm'
                   }`}
                 >
-                  <div className={`p-1.5 sm:p-2 rounded-xl w-fit ${isSelected ? 'bg-orange-500 text-white' : 'bg-slate-100 text-orange-600'}`}>
+                  <div className={`p-1.5 sm:p-2 rounded-xl w-fit ${isSelected ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white' : 'bg-slate-100 text-blue-600'}`}>
                     {getServiceIcon(svc.id)}
                   </div>
                   <div>
-                    <span className="text-[9px] sm:text-[10px] uppercase font-bold text-orange-600 block truncate">
+                    <span className="text-[9px] sm:text-[10px] uppercase font-bold text-blue-600 block truncate">
                       {svc.category}
                     </span>
                     <span className="text-xs sm:text-sm font-bold font-heading line-clamp-2 leading-snug text-slate-900">
@@ -139,7 +139,7 @@ const ServicesPage = ({ initialServiceId, onNavigateContact, onSelectImage }) =>
                 
                 {/* Category Pill with Glassmorphism */}
                 <div className="absolute top-4 left-4 sm:top-6 sm:left-6">
-                  <span className="glassmorphism text-orange-700 border border-orange-200 text-xs font-bold px-3 py-1 rounded-full shadow">
+                  <span className="glassmorphism text-blue-900 border border-blue-200 text-xs font-bold px-3 py-1 rounded-full shadow">
                     {activeService.tag}
                   </span>
                 </div>
@@ -147,7 +147,7 @@ const ServicesPage = ({ initialServiceId, onNavigateContact, onSelectImage }) =>
                 <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 space-y-2">
                   <div className="glassmorphism border border-white/80 rounded-xl p-3 sm:p-3.5 shadow-md">
                     <span className="text-[10px] uppercase font-bold text-slate-600 block">Operational Footprint:</span>
-                    <span className="text-xs sm:text-sm font-bold text-orange-600 font-heading">{activeService.metrics}</span>
+                    <span className="text-xs sm:text-sm font-bold text-blue-600 font-heading">{activeService.metrics}</span>
                   </div>
                 </div>
               </div>
@@ -155,7 +155,7 @@ const ServicesPage = ({ initialServiceId, onNavigateContact, onSelectImage }) =>
               {/* Right Details (7 cols) */}
               <div className="lg:col-span-7 p-5 sm:p-8 lg:p-10 space-y-5 sm:space-y-6">
                 <div>
-                  <div className="flex items-center gap-2 text-[11px] sm:text-xs text-orange-600 font-semibold uppercase tracking-wider mb-1">
+                  <div className="flex items-center gap-2 text-[11px] sm:text-xs text-blue-600 font-semibold uppercase tracking-wider mb-1">
                     <span>{activeService.category}</span>
                     <span>•</span>
                     <span>B2B Contract Service</span>
@@ -170,7 +170,7 @@ const ServicesPage = ({ initialServiceId, onNavigateContact, onSelectImage }) =>
 
                 {/* Key Capabilities */}
                 <div>
-                  <h4 className="text-[11px] sm:text-xs font-bold text-orange-600 uppercase tracking-wider mb-2.5">
+                  <h4 className="text-[11px] sm:text-xs font-bold text-blue-600 uppercase tracking-wider mb-2.5">
                     Service Specifications & Capabilities
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
@@ -198,7 +198,7 @@ const ServicesPage = ({ initialServiceId, onNavigateContact, onSelectImage }) =>
                 <div className="pt-2 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
                   <button
                     onClick={() => onNavigateContact && onNavigateContact()}
-                    className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-orange-500/20 cursor-pointer transition btn-luxury"
+                    className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-blue-500/20 cursor-pointer transition btn-luxury"
                   >
                     <span>Contact Our Operations Team</span>
                     <ArrowRight className="w-4 h-4" />
@@ -230,9 +230,9 @@ const ServicesPage = ({ initialServiceId, onNavigateContact, onSelectImage }) =>
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {serviceWorkflow.map((step, idx) => (
             <StaggerItem key={idx} direction="up">
-              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 relative overflow-hidden flex flex-col justify-between shadow-sm hover:border-orange-300 transition-all">
+              <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 relative overflow-hidden flex flex-col justify-between shadow-sm hover:border-blue-300 transition-all">
                 <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-orange-400/40 font-heading mb-2 sm:mb-3">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-blue-500/30 font-heading mb-2 sm:mb-3">
                     {step.step}
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 font-heading mb-1.5">
@@ -263,11 +263,11 @@ const ServicesPage = ({ initialServiceId, onNavigateContact, onSelectImage }) =>
           {servicesData.map((svc) => (
             <StaggerItem key={svc.id} direction="up">
               <div 
-                className="card-luxury rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:border-orange-300 hover:shadow-xl transition-all space-y-4 shadow-sm"
+                className="card-luxury rounded-2xl p-5 sm:p-6 flex flex-col justify-between hover:border-blue-300 hover:shadow-xl transition-all space-y-4 shadow-sm"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-[10px] uppercase font-bold text-orange-700 px-2.5 py-1 rounded bg-orange-50 border border-orange-200">
+                    <span className="text-[10px] uppercase font-bold text-blue-700 px-2.5 py-1 rounded bg-blue-50 border border-blue-200">
                       {svc.category}
                     </span>
                     <span className="text-xs text-slate-400 font-medium">B2B Division</span>
@@ -284,7 +284,7 @@ const ServicesPage = ({ initialServiceId, onNavigateContact, onSelectImage }) =>
                   <div className="space-y-1.5 pt-3 border-t border-slate-100">
                     {svc.keyFeatures.slice(0, 3).map((f, i) => (
                       <div key={i} className="flex items-center gap-2 text-xs text-slate-600">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
                         <span className="truncate">{f}</span>
                       </div>
                     ))}
@@ -298,7 +298,7 @@ const ServicesPage = ({ initialServiceId, onNavigateContact, onSelectImage }) =>
                       const el = document.getElementById('service-deepdive');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="w-full bg-slate-50 hover:bg-orange-500 hover:text-white text-slate-800 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer border border-slate-200"
+                    className="w-full bg-slate-50 hover:bg-blue-600 hover:text-white text-slate-800 font-semibold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer border border-slate-200"
                   >
                     <span>View Service Specifications</span>
                     <ArrowRight className="w-3.5 h-3.5" />

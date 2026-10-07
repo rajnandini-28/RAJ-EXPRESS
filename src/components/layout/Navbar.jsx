@@ -104,15 +104,15 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
               onClick={() => handleNavClick('home')}
               className="flex items-center gap-2.5 sm:gap-3 text-left group focus:outline-none cursor-pointer shrink-0"
             >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-orange-500 via-amber-500 to-orange-600 flex items-center justify-center text-white shadow-md shadow-orange-500/25 group-hover:scale-105 group-hover:shadow-orange-500/40 transition-all duration-300">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 flex items-center justify-center text-white shadow-md shadow-blue-500/25 group-hover:scale-105 group-hover:shadow-blue-500/40 transition-all duration-300">
                 <Truck className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2] text-white" />
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
                   <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 font-heading">
-                    RAJ<span className="text-orange-600">EXPRESS</span>
+                    RAJ<span className="text-blue-600">EXPRESS</span>
                   </span>
-                  <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest bg-orange-50 text-orange-700 px-1.5 py-0.5 rounded-md border border-orange-200 shadow-xs">
+                  <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded-md border border-blue-200 shadow-xs">
                     LOGISTICS
                   </span>
                 </div>
@@ -132,8 +132,8 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
                     onClick={() => handleNavClick(item.id)}
                     className={`px-3 py-1.5 lg:px-4 lg:py-2 rounded-xl text-xs lg:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                       isActive 
-                        ? 'text-orange-700 bg-orange-50 border border-orange-200/90 shadow-xs font-bold scale-[1.02]' 
-                        : 'text-slate-700 hover:text-orange-600 hover:bg-orange-50/60 hover:-translate-y-0.5'
+                        ? 'text-blue-700 bg-blue-50 border border-blue-200/90 shadow-xs font-bold scale-[1.02]' 
+                        : 'text-slate-700 hover:text-blue-600 hover:bg-blue-50/60 hover:-translate-y-0.5'
                     }`}
                   >
                     {item.label}
@@ -148,8 +148,8 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
                 onClick={() => onNavigateContact ? onNavigateContact() : handleNavClick('contact')}
                 className={`inline-flex items-center gap-2 font-extrabold px-5 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-md cursor-pointer btn-luxury ${
                   activePage === 'contact'
-                    ? 'bg-orange-600 text-white ring-2 ring-orange-400 shadow-orange-500/30'
-                    : 'bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 text-white shadow-orange-500/25'
+                    ? 'bg-blue-700 text-white ring-2 ring-blue-400 shadow-blue-500/30'
+                    : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 text-white shadow-blue-500/25'
                 }`}
               >
                 <Send className="w-3.5 h-3.5" />
@@ -161,7 +161,7 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
             <div className="flex md:hidden items-center gap-1.5 sm:gap-2">
               <button
                 onClick={() => onNavigateContact ? onNavigateContact() : handleNavClick('contact')}
-                className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow transition cursor-pointer"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow transition cursor-pointer"
               >
                 Contact
               </button>
@@ -170,7 +170,7 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
                 className="p-1.5 sm:p-2 rounded-lg text-slate-700 hover:text-slate-950 hover:bg-slate-100 focus:outline-none"
                 aria-label="Toggle Navigation Menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6 text-orange-600" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-6 h-6 text-blue-600" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
@@ -180,7 +180,7 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
             <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-1.5 shadow-2xl animate-in slide-in-from-top duration-200 max-h-[calc(100vh-70px)] overflow-y-auto">
               <div className="pb-2 mb-2 border-b border-slate-100 text-xs text-slate-500 flex items-center justify-between">
                 <span>Raj Express Transport & Logistics</span>
-                <a href={`tel:${companyInfo.phone}`} className="text-orange-600 font-bold">{companyInfo.phone}</a>
+                <a href={`tel:${companyInfo.phone}`} className="text-blue-600 font-bold">{companyInfo.phone}</a>
               </div>
               {navItems.map((item) => {
                 const isActive = activePage === item.id;
@@ -190,12 +190,12 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
                     onClick={() => handleNavClick(item.id)}
                     className={`w-full text-left px-3.5 py-2.5 rounded-xl text-sm font-medium flex items-center justify-between cursor-pointer transition ${
                       isActive 
-                        ? 'bg-orange-50 text-orange-700 font-bold border border-orange-200' 
+                        ? 'bg-blue-50 text-blue-700 font-bold border border-blue-200' 
                         : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                     }`}
                   >
                     <span>{item.label}</span>
-                    <ChevronRight className={`w-4 h-4 ${isActive ? 'text-orange-600' : 'text-slate-400'}`} />
+                    <ChevronRight className={`w-4 h-4 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
                   </button>
                 );
               })}
@@ -206,7 +206,7 @@ const Navbar = ({ activePage, setActivePage, onNavigateContact }) => {
                     if (onNavigateContact) onNavigateContact();
                     else handleNavClick('contact');
                   }}
-                  className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white font-extrabold py-3 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 cursor-pointer btn-luxury"
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-extrabold py-3 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 cursor-pointer btn-luxury"
                 >
                   <Send className="w-4 h-4" />
                   <span>Contact Our Team</span>

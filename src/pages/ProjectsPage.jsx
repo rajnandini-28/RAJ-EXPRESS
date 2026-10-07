@@ -56,8 +56,8 @@ const ProjectsPage = ({ onNavigateContact, onSelectImage }) => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-orange-500 text-white shadow-md shadow-orange-500/20 font-bold'
-                    : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 shadow-sm'
+                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20 font-bold'
+                    : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/90 shadow-sm hover:border-blue-300'
                 }`}
               >
                 {cat}
@@ -99,7 +99,7 @@ const ProjectsPage = ({ onNavigateContact, onSelectImage }) => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               <div className="bg-slate-50 p-5 sm:p-6 rounded-2xl border border-slate-200 space-y-2">
-                <span className="text-2xl sm:text-3xl font-extrabold text-orange-600 font-heading">99.8%</span>
+                <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-heading">99.8%</span>
                 <h4 className="text-xs sm:text-sm font-bold text-slate-900">Daily Commuter Punctuality</h4>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Verified across 25,000+ daily employee trips with zero missed employee shifts due to automated hot-standby vehicle protocols.
@@ -115,7 +115,7 @@ const ProjectsPage = ({ onNavigateContact, onSelectImage }) => {
               </div>
 
               <div className="bg-slate-50 p-5 sm:p-6 rounded-2xl border border-slate-200 space-y-2 col-span-1 sm:col-span-2 lg:col-span-1">
-                <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-heading">100%</span>
+                <span className="text-2xl sm:text-3xl font-extrabold text-indigo-600 font-heading">100%</span>
                 <h4 className="text-xs sm:text-sm font-bold text-slate-900">Regulatory Compliance</h4>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Zero RTO/MORTH safety violations, 100% AIS-140 GPS compliance, and computerized digital e-way bill and e-POD tracking.
@@ -129,20 +129,20 @@ const ProjectsPage = ({ onNavigateContact, onSelectImage }) => {
       {/* 4. Request Case Study RFP Callout */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal direction="up">
-          <div className="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 rounded-3xl p-6 sm:p-8 text-center space-y-3 sm:space-y-4 text-white shadow-xl">
+          <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 rounded-3xl p-6 sm:p-8 text-center space-y-3 sm:space-y-4 text-white shadow-xl border border-blue-500/30">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white font-heading">
               Have a Large-Scale Transportation Need?
             </h3>
-            <p className="text-xs sm:text-sm text-orange-50 max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-blue-100 max-w-xl mx-auto">
               Our enterprise solutions team will prepare a customized assessment with route maps, vehicle allocation models, and cost-benefit frameworks.
             </p>
             <div className="pt-2">
               <button
                 onClick={() => onNavigateContact && onNavigateContact()}
-                className="bg-white hover:bg-slate-100 text-slate-900 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-lg hover:scale-[1.02] transition"
+                className="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm inline-flex items-center gap-2 cursor-pointer shadow-lg hover:scale-[1.02] transition btn-luxury"
               >
-                <span className="text-orange-700 font-extrabold">Contact Our Projects Team</span>
-                <ArrowRight className="w-4 h-4 text-orange-600" />
+                <span className="text-slate-950 font-extrabold">Contact Our Projects Team</span>
+                <ArrowRight className="w-4 h-4 text-slate-950" />
               </button>
             </div>
           </div>
