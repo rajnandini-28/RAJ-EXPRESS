@@ -20,44 +20,44 @@ import { Reveal, StaggerContainer, StaggerItem } from '../components/common/Reve
 const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
   const leadershipTeam = [
     {
-      name: "Marcus Vance",
-      role: "Chief Executive Officer & Founder",
-      experience: "24+ Years in Multi-Modal Freight Logistics",
-      bio: "Founded Raj Express in 2008 with a vision of technology-driven, zero-tolerance road safety across industrial transportation corridors.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&crop=top&w=700&q=80"
+      name: "Rajeshwar Singh Bhati",
+      role: "Managing Director & Founder",
+      experience: "24+ Years in Indian Multi-Modal Freight Logistics",
+      bio: "Founded Raj Express in 2008 in Jaipur with a vision of technology-driven, zero-tolerance road safety across North & Western Indian industrial transit corridors.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&crop=top&w=700&q=80"
     },
     {
-      name: "Elena Rostova",
+      name: "Pooja Sharma",
       role: "VP of Fleet Operations & Telematics",
-      experience: "16+ Years in Enterprise Commuter Transit",
-      bio: "Oversees 450+ fleet units, 24/7 Transport Control Room (TCR), and automated roster dispatch algorithms.",
+      experience: "16+ Years in Enterprise Commuter Transit & AIS-140 Integration",
+      bio: "Oversees 450+ verified fleet units, 24/7 Central Transport Control Room (TCR), and automated roster dispatch algorithms for tech parks.",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&crop=top&w=700&q=80"
     },
     {
-      name: "David Sterling",
-      role: "Head of Safety, DOT Compliance & Training",
-      experience: "19+ Years Highway Safety & HAZMAT Certification",
-      bio: "Directs Raj Express's proprietary Driver Academy, quarterly defensive driving accreditations, and zero-accident compliance.",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&crop=top&w=700&q=80"
+      name: "Capt. Vikram Rathore",
+      role: "Head of Safety, RTO Compliance & Driver Academy",
+      experience: "19+ Years Highway Safety & Commercial Transport Compliance",
+      bio: "Directs Raj Express's proprietary Driver Training Academy, quarterly defensive driving accreditations, and zero-accident highway protocols.",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&crop=top&w=700&q=80"
     }
   ];
 
   const safetyProtocols = [
     {
-      title: "Telematics & ADAS Cameras",
-      desc: "Every vehicle is equipped with dual-lens forward and driver-facing fatigue monitoring cameras, integrated with remote speed limiters."
+      title: "AIS-140 Telematics & ADAS Cameras",
+      desc: "Every vehicle is equipped with dual-lens forward and driver-facing fatigue monitoring cameras, integrated with automated speed governors."
     },
     {
-      title: "Breathalyzer & Health Audits",
-      desc: "Mandatory biometric and digital alcohol screening before every single trip departure across all regional depot terminals."
+      title: "Breathalyzer & Medical Screening",
+      desc: "Mandatory biometric and digital alcohol screening before every single departure across all regional depot terminals in Jaipur, Delhi, and Gujarat."
     },
     {
       title: "Preventative OEM Maintenance",
-      desc: "Computerized diagnostic checkups every 10,000 km using certified OEM parts to prevent en-route technical breakdowns."
+      desc: "Computerized diagnostic checkups every 10,000 km using certified OEM parts to prevent highway breakdowns."
     },
     {
-      title: "Dual-Driver Relay Networks",
-      desc: "Interstate long-haul routes deploy two licensed drivers on continuous rotation to strictly avoid fatigue violations."
+      title: "Dual-Driver Relay Highway Networks",
+      desc: "Interstate long-haul routes deploy two licensed commercial drivers on continuous rotation to strictly prevent fatigue."
     }
   ];
 
@@ -244,11 +244,15 @@ const AboutPage = ({ setActivePage, onNavigateContact, onSelectImage }) => {
             <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 sm:gap-4 text-xs text-slate-600">
               <span className="flex items-center gap-1.5 sm:gap-2 font-medium">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                DOT Audited & Compliant
+                AIS-140 GPS & Telematics Certified
               </span>
               <span className="flex items-center gap-1.5 sm:gap-2 font-medium">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                FMCSA Regulated Operations
+                MORTH & State RTO Regulated
+              </span>
+              <span className="flex items-center gap-1.5 sm:gap-2 font-medium">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                All India National Permit (NP/AITP)
               </span>
               <span className="flex items-center gap-1.5 sm:gap-2 font-medium">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />

@@ -118,7 +118,7 @@ const ProjectsPage = ({ onNavigateContact, onSelectImage }) => {
                 <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-heading">100%</span>
                 <h4 className="text-xs sm:text-sm font-bold text-slate-900">Regulatory Compliance</h4>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Zero DOT safety citations, fully compliant driver hours of service (HOS), and computerized electronic logging device (ELD) records.
+                  Zero RTO/MORTH safety violations, 100% AIS-140 GPS compliance, and computerized digital e-way bill and e-POD tracking.
                 </p>
               </div>
             </div>

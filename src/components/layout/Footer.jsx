@@ -63,7 +63,7 @@ const Footer = ({ setActivePage, onSelectService, onNavigateContact }) => {
               </span>
               <span className="inline-flex items-center gap-1.5 text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full text-slate-300">
                 <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />
-                DOT & HAZMAT Certified
+                AIS-140 & RTO Certified
               </span>
               <span className="inline-flex items-center gap-1.5 text-xs bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full text-slate-300">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
@@ -189,7 +189,7 @@ const Footer = ({ setActivePage, onSelectService, onNavigateContact }) => {
           <p>© {new Date().getFullYear()} {companyInfo.name}. All rights reserved.</p>
           <div className="flex items-center space-x-6">
             <span>Enterprise SLA Compliant</span>
-            <span>DOT Safety Rating: Satisfactory (Highest)</span>
+            <span>AIS-140 GPS & MORTH Compliant</span>
             <span>Privacy & Compliance</span>
           </div>
         </div>
